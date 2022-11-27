@@ -82,7 +82,14 @@
             <div class="col-md-8">
                 <!-- weather data -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center"></p>
+                    <form action="{{url_for('predict')}}" method="post">
+                        <label for="age">Age: </label>
+                        <input id="age" name="age" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
+                        <label for="gender">Gender: </label>
+                        <input id="gender" name="gender" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </form>
+                    <p>{{prediction_text}}</p>
                 </div>
             </div>
 
