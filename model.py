@@ -24,4 +24,5 @@ yp_ = rfc.predict_proba(Xrs_)[:,1]
 auc = roc_auc_score(y_, yp_)
 
 if __name__ == '__main__':
-    dump(rfc, 'Models/a2-d-rfc.pkl', )
+    dump(ss, open('Scalers/a2-d-rfc.pkl', 'wb'))
+    dump(rfc, open('Models/a2-d-rfc.pkl', 'wb'))
