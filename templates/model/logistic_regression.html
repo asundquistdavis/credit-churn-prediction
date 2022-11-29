@@ -8,10 +8,10 @@
 
     <!-- set the title -->
     <title>Hosted Style Testing</title>
-    <link rel="icon" type="image/x-icon" href="Resources/churn.ico">
+    <link rel="icon" type="image/x-icon" href="../Resources/churn.ico">
 
     <!-- reset the style -->
-    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
 
     <!-- set metadata -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
     <!-- now link to custom style.css -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
         <div class="row g-0">
             <div class="col-md-12">
                 <div class="border rounded bg-light m-2 p-2">
-                    <h3 class="display-4 text-center">Credit Card Churn</h3>
+                    <h3 class="display-4 text-center">Logistic Regression</h3>
                     <!-- <p class="text-center">Use the interactive map below to explore your options!</p> -->
                 </div>
             </div>
@@ -39,7 +39,7 @@
 
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="">Home<span class="italic" class="sr-only">(current)</span></a>
+            <a class="navbar-brand" href="../../credit-card-churn">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,24 +47,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="about">About</a>
+                  <a class="nav-link" href="../about">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         Machine Learning Models
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="model/knn"><span class="italic">k-</span>Nearest Neighbors</a></li>
-                      <li><a class="dropdown-item" href="model/logistic_regression">Logistic Regression</a></li>
-                      <li><a class="dropdown-item" href="model/neural_network">Neural Network</a></li>
-                      <li><a class="dropdown-item" href="model/random_forest">Random Forest</a></li>
+                      <li><a class="dropdown-item" href="knn"><span class="italic">k-</span>Nearest Neighbors</a></li>
+                      <li><a class="dropdown-item" href="">Logistic Regression<span class="italic" class="sr-only">(current)</span></a></li>
+                      <li><a class="dropdown-item" href="neural_network">Neural Network</a></li>
+                      <li><a class="dropdown-item" href="random_forest">Random Forest</a></li>
                     </ul>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="predict">Make Prediction</a>
+                    <a class="nav-link" href="../predict">Make Prediction</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="styles">Style-Tester-!!</a>
+                    <a class="nav-link" href="../styles">Style-Tester-!!</a>
                   </li>
               </ul>
             </div>
