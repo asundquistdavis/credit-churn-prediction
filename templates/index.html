@@ -83,11 +83,57 @@
                 <!-- weather data -->
                 <div class="border rounded bg-light m-2 p-2">
                     <form action="{{url_for('predict')}}" method="post">
-                        <label for="age">Age: </label>
-                        <input id="age" name="age" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
-                        <label for="gender">Gender: </label>
-                        <input id="gender" name="gender" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
-                        <button type="submit" class="btn btn-primary">Predict</button>
+                        <div class="col-md-6">
+                            <label for="age">Age: </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="age" name="age" type="text" required="required" {% if features %} value={{values[0]}} {% endif %}/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="numDep">Number of Dependents: </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="numDep" name="numDep" type="text" required="required" {% if features %} value={{values[1]}} {% endif %}/>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Gender: </p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="female">Female</label>
+                            <input id="female" name="gender" type="radio" required="required" value="Female"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="male">Male</label>
+                            <input id="male" name="gender" type="radio" required="required" value="Male"/>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Education Level</p>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="college">College</label>
+                            <input id="college" name="educationLevel" type="radio" required="required" value="College"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="doctorate">Doctorate</label>
+                            <input id="doctorate" name="educationLevel" type="radio" required="required" value="Doctorate"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="graduate">Graduate</label>
+                            <input id="graduate" name="educationLevel" type="radio" required="required" value="Graduate"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="highSchool">High School</label>
+                            <input id="highSchool" name="educationLevel" type="radio" required="required" value="High School"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="postGrad">Post Graduate</label>
+                            <input id="postGrad" name="educationLevel" type="radio" required="required" value="Post Graduate"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="uneducated">Uneducated</label>
+                            <input id="uneducated" name="educationLevel" type="radio" required="required" value="Uneducated"/>
+                        </div>
+                     <button type="submit" class="btn btn-primary">Predict</button>
                     </form>
                     <p>{{prediction_text}}</p>
                 </div>
