@@ -1,4 +1,8 @@
 from flask import Flask, request, render_template
+from pickle import load
+
+ss = load(open('Scalers/d-rfc.pkl', 'rb'))
+rfc = load(open('Models/d-rfc.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -8,9 +12,18 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    features = [x for x in request.form.values()]
+    values = {k:v for k,v in zip(request.form.keys(), request.form.values())}
+    features = []
     prediction_text = " ".join([feature for feature in features])
     return render_template('index.html', prediction_text=prediction_text, features=features)
+
+@app.route('/models/knn')
+def knn():
+    return render_template('models/knn.html')
+
+@app.route('/models/logistic-regression')
+def logistic_regression():
+    return render_template()
 
 if __name__ == '__main__':
     app.run(debug=True)
