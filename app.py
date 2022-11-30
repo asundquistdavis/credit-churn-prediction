@@ -34,7 +34,7 @@ def logistic_regression():
     return render_template('model/logistic_regression.html')
 
 # nueral net
-@app.route('models/neural_network')
+@app.route('/models/neural_network')
 def neural_network():
     return render_template('model/neural_network.html')
 
