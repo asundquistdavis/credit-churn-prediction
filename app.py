@@ -15,12 +15,16 @@ def about():
 # TK
 
 # interactive prediction page - dynamic
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    values = {k:v for k,v in zip(request.form.keys(), request.form.values())}
-    features = []
-    prediction_text = " ".join([feature for feature in features])
-    return render_template('index.html', prediction_text=prediction_text, features=features)
+    if request.method == 'POST':
+        entries = {k:v for k,v in request.form.items()}
+        features = []
+        print(entries)
+        prediction_text = ' '.join(f'{k}: {v}' for k, v in entries.items())
+        return render_template('predict.html', prediction_text=prediction_text, entries=entries)
+    else: 
+        return render_template('predict.html', prediction_text='Make a prediction!')
 
 # --- following '/models/' routes and for each model - all static
 # knn

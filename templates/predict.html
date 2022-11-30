@@ -81,12 +81,32 @@
             
             <div class="col-md-10">
                 <!-- Row element -->
+
+                <!-- this is the interact form to enter predictions -->
                 <div class="border rounded bg-light m-2 p-2">
                     <form action="{{url_for('predict')}}" method="post">
+
+                        <!-- age: text entry -> cast to int -->
                         <label for="age">Age: </label>
-                        <input id="age" name="age" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
-                        <label for="gender">Gender: </label>
-                        <input id="gender" name="gender" type="text" required="required" {% if features %} value={{features[0]}} {% endif %}/>
+                        <input id="age" name="age" type="text" required="required" {% if features %} value={{features["age"]}} {% endif %}/>
+
+                        <!-- numdep: text -> cast to int -->
+                        <label for="numdep">Number of Dependents</label>
+                        <input id="numdep" name="numdep" type="text" required="required" {% if features %} value={{features["numdep"]}} {% endif %}/>
+
+                        <!-- gender: radio button -> either M or F -->
+                        <p>Gender</p>
+                        <label for="male">Male</label>
+                        <input id="male" name="gender" type="radio" required="required"  value="Male" {% if (features and features["gender"] == 'Male') %} checked="true" {% else %} checked="true" {% endif %}/>
+                        <label for="female">Female</label>
+                        <input id="female" name="gender" type="radio" required="required" value="Female" {% if (features and features["gender"] == 'Female') %} checked="true" {% endif %}/>
+
+                        <!-- edclev -->
+                        <p>Education Level</p>
+                        <label for="uneducated">Uneducated</label>
+                        <input id="uneducated" name="edclev" type="radio" required="required"  value="Uneducated" {% if (features and features["edclev"] == 'Uneducated') %} checked="true" {% else %} checked="true" {% endif %}/>
+
+                        <!-- button to submit -->
                         <button type="submit" class="btn btn-outline-success btn-sm">Predict</button>
                     </form>
                     <p>{{prediction_text}}</p>
