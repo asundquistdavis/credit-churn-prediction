@@ -6,8 +6,10 @@ from sklearn.ensemble import RandomForestClassifier as RFC
 from sklearn.metrics import roc_auc_score
 from pickle import dump
 
-X = pd.read_csv('Resources/X.csv')
-y = pd.read_csv('Resources/y.csv').to_numpy().ravel()
+
+#  --- this model uses the X dataset: all data with no imputing and no synthetic 
+X = pd.read_csv('../Resources/X.csv')
+y = pd.read_csv('../Resources/y.csv').to_numpy().ravel()
 
 # select just demographic features
 Xr = X.iloc[:, np.r_[0:2, 14:30]]
@@ -26,5 +28,5 @@ auc = roc_auc_score(y_, yp_)
 
 if __name__ == '__main__':
     print(score, auc)
-    dump(ss, open('Scalers/d-rfc.pkl', 'wb'))
-    dump(rfc, open('Models/d-rfc.pkl', 'wb'))
+    dump(ss, open('../Scalers/d-rfc.pkl', 'wb'))
+    dump(rfc, open('../Models/d-rfc.pkl', 'wb'))
