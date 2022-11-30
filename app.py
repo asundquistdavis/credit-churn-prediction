@@ -17,5 +17,13 @@ def predict():
     prediction_text = " ".join([feature for feature in features])
     return render_template('index.html', prediction_text=prediction_text, features=features)
 
+@app.route('/models/knn')
+def knn():
+    return render_template('models/knn.html')
+
+@app.route('/models/logistic-regression')
+def logistic_regression():
+    return render_template()
+
 if __name__ == '__main__':
     app.run(debug=True)
