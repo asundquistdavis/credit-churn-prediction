@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template
 from pickle import load
 
-ss = load(open('Scalers/d-rfc.pkl', 'rb'))
-rfc = load(open('Models/d-rfc.pkl', 'rb'))
+# ss = load(open('Scalers/d-rfc.pkl', 'rb'))
+# rfc = load(open('Models/d-rfc.pkl', 'rb'))
 
 app = Flask(__name__)
 
