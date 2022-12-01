@@ -27,11 +27,11 @@ def about():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        entries = {k:v for k,v in request.form.items()}
+        entry = {k:v for k,v in request.form.items()}
         features = []
-        print(entries)
-        prediction_text = ' '.join(f'{k}: {v}' for k, v in entries.items())
-        return render_template('predict.html', prediction_text=prediction_text, entries=entries)
+        print(entry)
+        prediction_text = ' '.join(f'{k}: {v}' for k, v in entry.items())
+        return render_template('predict.html', prediction_text=prediction_text, entry=entry)
     else: 
         return render_template('predict.html', prediction_text='Make a prediction!')
 
