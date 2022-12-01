@@ -1,8 +1,17 @@
 from flask import Flask, request, render_template
 from pickle import load
 
-# ss = load(open('Scalers/d-rfc.pkl', 'rb'))
-# rfc = load(open('Models/d-rfc.pkl', 'rb'))
+ss = load(open('Scalers/d-rfc.pkl', 'rb'))
+rfc = load(open('Models/d-rfc.pkl', 'rb'))
+
+# this casts text entires as ints
+def validate_entries(entires):
+    FEATURES = ['age', 'numdep', 'gender', 'edclvl', 'marsta', 'income']
+    feature_names = []
+
+# this converts entries <dict> into features <list/1d array>
+def get_features(entires):
+    pass
 
 app = Flask(__name__)
 
