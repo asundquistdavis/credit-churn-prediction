@@ -96,9 +96,9 @@
 
                         <!-- gender: radio button -> either M or F -->
                         <p>Gender</p>
-                        <label for="m">m</label>
+                        <label for="m">Male</label>
                         <input id="m" name="gender" type="radio" required="required"  value="m" {% if entry and entry["gender"] == 'm' %} checked {% else %} checked {% endif %}/>
-                        <label for="f">f</label>
+                        <label for="f">Female</label>
                         <input id="f" name="gender" type="radio" required="required" value="f" {% if entry and entry["gender"] == 'f' %} checked {% endif %}/>
 
                         <!-- edclvl -->
@@ -118,9 +118,9 @@
                         
                         <!-- marsta -->
                         <p>Marital Status</p>
-                        <label for="s">s</label>
+                        <label for="s">Single</label>
                         <input id="s" name="marsta" type="radio" required="required"  value="s" {% if (entry and entry["marsta"] == 's') %} checked {% else %} checked {% endif %}/>
-                        <label for="m">m</label>
+                        <label for="m">Married</label>
                         <input id="m" name="marsta" type="radio" required="required"  value="m" {% if (entry and entry["marsta"] == 'm') %} checked {% endif %}/>
                         <label for="d">Divored</label>
                         <input id="d" name="marsta" type="radio" required="required"  value="d" {% if (entry and entry["marsta"] == 'd') %} checked {% endif %}/>

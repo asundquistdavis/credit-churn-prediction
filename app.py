@@ -1,17 +1,35 @@
 from flask import Flask, request, render_template
+import numpy as np
 from pickle import load
 
 ss = load(open('Scalers/d-rfc.pkl', 'rb'))
 rfc = load(open('Models/d-rfc.pkl', 'rb'))
 
 # this casts text entires as ints
-def validate_entries(entires):
-    FEATURES = ['age', 'numdep', 'gender', 'edclvl', 'marsta', 'income']
-    feature_names = []
+def is_valid(entry):
+    if not entry['age'].isnumeric():
+        return False, 'Please enter a number for age.'
+    elif not entry['numdep'].isnumeric():
+        return False, 'Please enter a number for number of dependents.'
+    else:
+        entry['age'] = int(entry['age'])
+        entry['numdep'] = int(entry['numdep'])
+        return True, ''
 
 # this converts entries <dict> into features <list/1d array>
-def get_features(entires):
-    pass
+def features_from(entry):
+    features = []
+    features.append(entry['age'])
+    features.append(entry['numdep'])
+    gender_map = {'m': [0, 1], 'f': [1, 0]}    
+    edclvl_map = {'u': [0, 0, 0, 0, 0, 1, 0], 'c': [1, 0, 0, 0, 0, 0, 0], 'd': [0, 1, 0, 0, 0, 0, 0], 'g': [0, 0, 1, 0, 0, 0, 0], 'h': [0, 0, 0, 1, 0, 0, 0], 'p': [0, 0, 0, 0, 1, 0, 0]}
+    marsta_map = {'d': [1, 0, 0, 0], 'm': [0, 1, 0, 0], 's': [0, 0, 1, 0]}
+    income_map = {'i1': [0, 0, 0, 0, 1, 0], 'i2': [0, 1, 0, 0, 0, 0], 'i3': [0, 0, 1, 0, 0, 0], 'i4': [0, 0, 0, 1, 0, 0], 'i5': [1, 0, 0, 0, 0, 0]}
+    features += gender_map[entry['gender']]
+    features += edclvl_map[entry['edclvl']]
+    features += marsta_map[entry['marsta']]
+    features += income_map[entry['income']]
+    return np.array([features])
 
 app = Flask(__name__)
 
@@ -27,10 +45,25 @@ def about():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
+
+        # get user entry from form 
         entry = {k:v for k,v in request.form.items()}
-        features = []
-        print(entry)
-        prediction_text = ' '.join(f'{k}: {v}' for k, v in entry.items())
+
+        # check if age and number of deps. are numeric
+        if not is_valid(entry)[0]:
+            return render_template('predict.html', prediction_text=is_valid(entry)[1], entry=entry)
+        
+        # build feature array from entry
+        features = features_from(entry)
+
+        # scale features using the model's scaler
+        features_scaled = ss.transform(features)
+
+        # use the model to make a prediction based on the users entry/features
+        outcomes = ['most likely an existing user', 'most likely attrited user']
+        prediction = outcomes[rfc.predict(features_scaled)[0]]
+
+        prediction_text = f'{prediction.capitalize()}.'
         return render_template('predict.html', prediction_text=prediction_text, entry=entry)
     else: 
         return render_template('predict.html', prediction_text='Make a prediction!')
