@@ -88,24 +88,56 @@
 
                         <!-- age: text entry -> cast to int -->
                         <label for="age">Age: </label>
-                        <input id="age" name="age" type="text" required="required" {% if features %} value={{features["age"]}} {% endif %}/>
+                        <input id="age" name="age" type="text" required="required" {% if entry %} value={{entry["age"]}} {% endif %}/>
 
                         <!-- numdep: text -> cast to int -->
                         <label for="numdep">Number of Dependents</label>
-                        <input id="numdep" name="numdep" type="text" required="required" {% if features %} value={{features["numdep"]}} {% endif %}/>
+                        <input id="numdep" name="numdep" type="text" required="required" {% if entry %} value={{entry["numdep"]}} {% endif %}/>
 
                         <!-- gender: radio button -> either M or F -->
                         <p>Gender</p>
-                        <label for="male">Male</label>
-                        <input id="male" name="gender" type="radio" required="required"  value="Male" {% if (features and features["gender"] == 'Male') %} checked="true" {% else %} checked="true" {% endif %}/>
-                        <label for="female">Female</label>
-                        <input id="female" name="gender" type="radio" required="required" value="Female" {% if (features and features["gender"] == 'Female') %} checked="true" {% endif %}/>
+                        <label for="m">m</label>
+                        <input id="m" name="gender" type="radio" required="required"  value="m" {% if entry and entry["gender"] == 'm' %} checked {% else %} checked {% endif %}/>
+                        <label for="f">f</label>
+                        <input id="f" name="gender" type="radio" required="required" value="f" {% if entry and entry["gender"] == 'f' %} checked {% endif %}/>
 
-                        <!-- edclev -->
+                        <!-- edclvl -->
                         <p>Education Level</p>
-                        <label for="uneducated">Uneducated</label>
-                        <input id="uneducated" name="edclev" type="radio" required="required"  value="Uneducated" {% if (features and features["edclev"] == 'Uneducated') %} checked="true" {% else %} checked="true" {% endif %}/>
-
+                        <label for="u">Uneducated</label>
+                        <input id="u" name="edclvl" type="radio" required="required"  value="u" {% if (entry and entry["edclvl"] == 'u') %} checked {% else %} checked {% endif %}/>
+                        <label for="h">High School</label>
+                        <input id="h" name="edclvl" type="radio" required="required"  value="h" {% if (entry and entry["edclvl"] == 'h') %} checked {% endif %}/>
+                        <label for="c">College</label>
+                        <input id="c" name="edclvl" type="radio" required="required"  value="c" {% if (entry and entry["edclvl"] == 'c') %} checked {% endif %}/>
+                        <label for="g">Graduate</label>
+                        <input id="g" name="edclvl" type="radio" required="required"  value="g" {% if (entry and entry["edclvl"] == 'g') %} checked {% endif %}/>
+                        <label for="p">Post College</label>
+                        <input id="p" name="edclvl" type="radio" required="required"  value="p" {% if (entry and entry["edclvl"] == 'p') %} checked {% endif %}/>
+                        <label for="d">Doctorate</label>
+                        <input id="d" name="edclvl" type="radio" required="required"  value="d" {% if (entry and entry["edclvl"] == 'd') %} checked {% endif %}/>
+                        
+                        <!-- marsta -->
+                        <p>Marital Status</p>
+                        <label for="s">s</label>
+                        <input id="s" name="marsta" type="radio" required="required"  value="s" {% if (entry and entry["marsta"] == 's') %} checked {% else %} checked {% endif %}/>
+                        <label for="m">m</label>
+                        <input id="m" name="marsta" type="radio" required="required"  value="m" {% if (entry and entry["marsta"] == 'm') %} checked {% endif %}/>
+                        <label for="d">Divored</label>
+                        <input id="d" name="marsta" type="radio" required="required"  value="d" {% if (entry and entry["marsta"] == 'd') %} checked {% endif %}/>
+                        
+                        <!-- income -->
+                        <p>Annual Income</p>
+                        <label for="i1">Less than $40K</label>
+                        <input id="i1" name="income" type="radio" required="required"  value="i1" {% if (entry and entry["income"] == 'i1') %} checked {% else %} checked {% endif %}/>
+                        <label for="i2">Between $40K and $60K</label>
+                        <input id="i2" name="income" type="radio" required="required"  value="i2" {% if (entry and entry["income"] == 'i2') %} checked {% endif %}/>
+                        <label for="i3">Between $60K and $80K</label>
+                        <input id="i3" name="income" type="radio" required="required"  value="i3" {% if (entry and entry["income"] == 'i3') %} checked {% endif %}/>
+                        <label for="i4">Between $80K and $120K</label>
+                        <input id="i4" name="income" type="radio" required="required"  value="i4" {% if (entry and entry["income"] == 'i4') %} checked {% endif %}/>
+                        <label for="i5">Greater than $120K</label>
+                        <input id="i5" name="income" type="radio" required="required"  value="i5" {% if (entry and entry["income"] == 'i5') %} checked {% endif %}/>
+                       
                         <!-- button to submit -->
                         <button type="submit" class="btn btn-outline-success btn-sm">Predict</button>
                     </form>
