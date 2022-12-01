@@ -8,10 +8,10 @@
 
     <!-- set the title -->
     <title>Hosted Style Testing</title>
-    <link rel="icon" type="image/x-icon" href="../Resources/churn.ico">
+    <link rel="icon" type="image/x-icon" href="../../Resources/churn.ico">
 
     <!-- reset the style -->
-    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../../static/css/reset.css">
 
     <!-- set metadata -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
     <!-- now link to custom style.css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
 </head>
 
 <body>
@@ -81,15 +81,22 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, iste quibusdam ipsam recusandae fuga cum sapiente necessitatibus cumque ut sequi facere velit aut tempore soluta inventore in. Sunt, exercitationem sint.</p>
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi beatae id minus quam ipsa repellat voluptates quia ducimus excepturi sapiente quos rerum, unde magni, dignissimos dolores tenetur suscipit vitae! Nobis?</p>
-                    <p class="h6 text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vero minus neque, animi totam velit voluptatem ea omnis! Beatae maiores aspernatur ipsum voluptas ipsam nostrum optio minus at eum accusantium?</p>
-                    <p class="h6 text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias suscipit mollitia eum totam repellendus vitae cupiditate at, quas, quia sint voluptatem in porro placeat dicta saepe? Cum autem quam possimus?</p>
+                    <p class="h4 text-center">To test our dataset, we also used Logistic Regression. Here were the results:</p>
+                    <p class="h5 text-center">Training Data Score: 0.8957208689927584</p>
+                    <p class="h5 text-center">Testing Data Score: 0.8969194312796208</p>
                     <hr>
-                    <img src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201003/20100315144150-1_0.jpg?itok=xksoTT8q" width="600" class="center" alt="Explained: Regression analysis | MIT News | Massachusetts ...">
+                    <img src="logistic reg path" width="300" class="center" alt="Logistic Regression ROC Curve">
+                    <img src="../../Resources/churn.png" width="200" class="center" alt="Logistic Regression ROC Curve">
                     <hr>
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum reprehenderit omnis officiis deleniti quasi sunt illo? Eos amet commodi, dolorem inventore voluptatum rem hic. Dolores esse non tenetur perspiciatis.</p>
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam natus quam quis amet, molestias repellat vel, aperiam incidunt odit eum laborum aliquid animi, facere corrupti suscipit ipsam voluptas ab.</p>
+                    <p class="h6 text-center">This is not really an ideal elbow curve but it shows that our model is decent. If you’re trying to identify customers that will leave soon, you could use this model to send them offers they might accept, to keep their business. It’s not perfect, but it could help you.</p>
+                    <p class="h4 text-center">AUC for the Logistic Regression Model: 0.7311381590021302</p>
+                    <p class="h6 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve (elbow curve) is below the line.</p>
+                    <hr>
+                    <p class="h3 text-center">Here is the confusion matrix: </p> 
+                    <p class="h4 text-center">[[ 1053 true positive, 1074 false positive ]</p>
+                    <p class="h4 text-center">[ 83 false negative,  322 true negative ]]</p>
+                    <p class="h6 text-center">-</p>
+                    <p class="h6 text-center">As you can see the model has a serious false positive problem. However, if you’re prioritized on keeping customers, you might find this acceptable, as it could be better to  give a special offer to someone who was going to stay on anyway than to ignore someone who was on the brink of leaving.</p>
                 </div>
             </div>
 
