@@ -59,9 +59,11 @@ def predict():
         # scale features using the model's scaler
         features_scaled = ss.transform(features)
 
+        print(rfc.predict(features_scaled)[0])
+
         # use the model to make a prediction based on the users entry/features
-        outcomes = ['most likely an existing user', 'most likely attrited user']
-        prediction = outcomes[rfc.predict(features_scaled)[0]]
+        outcomes = ['high risk attrition customer', 'low risk attrition customer']
+        prediction = outcomes[rfc.predict_proba(features_scaled)[0]]
 
         prediction_text = f'{prediction.capitalize()}.'
         return render_template('predict.html', prediction_text=prediction_text, entry=entry)
@@ -80,7 +82,7 @@ def logistic_regression():
     return render_template('model/logistic_regression.html')
 
 # nueral net
-@app.route('/models/neural_network')
+@app.route('/models/neural-network')
 def neural_network():
     return render_template('model/neural_network.html')
 
@@ -88,6 +90,8 @@ def neural_network():
 @app.route('/models/random-forest-classifier')
 def random_forest_classifier():
     return render_template('model/random_forest.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

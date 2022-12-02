@@ -23,7 +23,7 @@ rfc.fit(_Xrs, _y)
 
 score = rfc.score(Xrs_, y_)
 
-yp_ = rfc.predict_proba(Xrs_)[:,1]
+yp_ = rfc.predict(Xrs_)[:,1]
 auc = roc_auc_score(y_, yp_)
 
 test_a = rfc.predict(np.array([[27, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]]))

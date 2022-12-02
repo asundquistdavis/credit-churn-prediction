@@ -84,7 +84,7 @@ def auc_test(X, y, model='log', inst_num=None, trials=False, **kwargs):
     m.fit(_Xs, _y)
     if trials:
         return roc(Xs_, y_, m, 100, area=True)
-    save_path = f'Outputs/{str(m).split("(")[0]}_ROC'
+    save_path = f'../Outputs/{str(m).split("(")[0]}_ROC'
     if not inst_num == None:
         save_path += f'_{inst_num}'
     return roc(Xs_, y_, m, 100, save_path=save_path+'.csv', area=True)
