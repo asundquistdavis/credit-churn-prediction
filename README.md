@@ -11,7 +11,9 @@
 ---
 
 ### Overview:
-This project aims to predict credit card user attrtion by analysing a data set containing 
+This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. The original data indicates existing and non-existing users however, the models created are used as a way to predict which types of users are more likeing to close their accounts in the future.
+
+While the data set in this project is used to predict churn this same type of analysis can be used to predict churn patterns on other data sets.
 
 ---
 
