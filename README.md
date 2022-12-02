@@ -3,11 +3,11 @@
 ### Analyzing and Predicting Credit Card Churn
 
 ##### Authors:
-* Bryan Groves (GrovesB)
-* Nathan Johnson (ntjohn3551)
-* Jacob McManaman (Jacob-McM)
-* Andrew Sundquist (asundquistdavis)
-* John Torgerson (JohnTorgerson)
+* Bryan Groves (GrovesB) - KNN analysis and lead Tableau design
+* Nathan Johnson (ntjohn3551) - Logistic Regression analysis
+* Jacob McManaman (Jacob-McM) - Neural Network analysis
+* Andrew Sundquist (asundquistdavis) - Lead Web Hosting and Random Forest Classifier analysis
+* John Torgerson (JohnTorgerson) - Lead Web design
 ---
 
 ### Overview:
@@ -62,6 +62,10 @@ While the data set in this project is used to predict churn this same type of an
 ---
 
 ### Observations:
+* 
+---
+
+### Conclusions:
 * 
 ---
 
