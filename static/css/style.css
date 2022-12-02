@@ -5,6 +5,18 @@ html *
     font-family: "Garamond", serif;
 }
 
+
+.btn-block
+{
+    display: block;
+    width: 100%
+}
+
+.select
+{
+    text-align: center;
+}
+
 .italic 
 {
     font-style: italic;
