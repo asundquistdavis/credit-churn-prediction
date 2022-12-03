@@ -72,22 +72,22 @@ def predict():
 
 # --- following '/models/' routes and for each model - all static
 # knn
-@app.route('/models/knn')
+@app.route('/model/knn')
 def knn():
     return render_template('model/knn.html')
 
 # logistic regression
-@app.route('/models/logistic-regression')
+@app.route('/model/logistic-regression')
 def logistic_regression():
     return render_template('model/logistic_regression.html')
 
 # nueral net
-@app.route('/models/neural-network')
+@app.route('/model/neural-network')
 def neural_network():
     return render_template('model/neural_network.html')
 
 # random forest classifier
-@app.route('/models/random-forest-classifier')
+@app.route('/model/random-forest-classifier')
 def random_forest_classifier():
     return render_template('model/random_forest.html')
 
