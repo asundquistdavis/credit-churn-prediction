@@ -31,6 +31,8 @@ def features_from(entry):
     features += income_map[entry['income']]
     return np.array([features])
 
+MODEL_TRHESHOLD = .9
+
 app = Flask(__name__)
 
 # home page with infor about project - static
@@ -42,7 +44,7 @@ def about():
 # TK
 
 # interactive prediction page - dynamic
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/anythingelse', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
 
@@ -51,7 +53,7 @@ def predict():
 
         # check if age and number of deps. are numeric
         if not is_valid(entry)[0]:
-            return render_template('predict.html', prediction_text=is_valid(entry)[1], entry=entry)
+            return render_template('prediction.html', prediction_text=is_valid(entry)[1], entry=entry)
         
         # build feature array from entry
         features = features_from(entry)
@@ -63,31 +65,31 @@ def predict():
 
         # use the model to make a prediction based on the users entry/features
         outcomes = ['high risk attrition customer', 'low risk attrition customer']
-        prediction = outcomes[rfc.predict(features_scaled)[0]]
+        prediction = outcomes[(0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)]
 
         prediction_text = f'{prediction.capitalize()}.'
-        return render_template('predict.html', prediction_text=prediction_text, entry=entry)
+        return render_template('prediction.html', prediction_text=prediction_text, entry=entry)
     else: 
-        return render_template('predict.html', prediction_text='Make a prediction!')
+        return render_template('prediction.html', prediction_text='Make a prediction!')
 
 # --- following '/models/' routes and for each model - all static
 # knn
-@app.route('/models/knn')
+@app.route('/model/knn')
 def knn():
     return render_template('model/knn.html')
 
 # logistic regression
-@app.route('/models/logistic-regression')
+@app.route('/logistic-regression')
 def logistic_regression():
     return render_template('model/logistic_regression.html')
 
 # nueral net
-@app.route('/models/neural-network')
+@app.route('/model/neural-network')
 def neural_network():
     return render_template('model/neural_network.html')
 
 # random forest classifier
-@app.route('/models/random-forest-classifier')
+@app.route('/model/random-forest-classifier')
 def random_forest_classifier():
     return render_template('model/random_forest.html')
 
