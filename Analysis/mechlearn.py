@@ -11,6 +11,10 @@ from sklearn.svm import SVC
 model_dict = {'log': LRC, 'rfc': RFC, 'knn': KNC, 'svc': SVC}
 
 import math
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import RandomizedSearchCV as RSCV
 
 def split_and_scale(X, y):
     _X, X_, _y, y_ = tts(X, y)
@@ -59,8 +63,8 @@ def roc(X_, y_, model_inst, N, plot = False, area=False, save_path=None):
         plt.show()
 #   save to path name 'save_path' if provided
     if not save_path == None:
-        with open(save_path, 'w') as f:
-            csv.writer(f, lineterminator='\n').writerows(zip(F, T))
+        data = pd.DataFrame({'fpr': F, 'tpr': T})
+        data.to_csv(save_path, index=False)
 #   return area under curve if auc is selected
     if area:
         return auc(F, T)
@@ -76,7 +80,7 @@ def acc_test(X, y, model='log', inst_num=None, **kwargs):
     m.fit(_Xs, _y)
     return m.score(Xs_, y_)
     
-def auc_test(X, y, model='log', inst_num=None, trials=False, **kwargs):
+def auc_test(X, y, data_set=False, model='log', inst_num=None, trials=False, **kwargs):
     y = y.to_numpy().ravel()
     _Xs, Xs_, _y, y_ = split_and_scale(X, y)
     M = model_dict[model]
@@ -84,10 +88,18 @@ def auc_test(X, y, model='log', inst_num=None, trials=False, **kwargs):
     m.fit(_Xs, _y)
     if trials:
         return roc(Xs_, y_, m, 100, area=True)
-    save_path = f'../Outputs/{str(m).split("(")[0]}_ROC'
+    save_path = f'../Outputs/{data_set+"_" if data_set else""}{str(m).split("(")[0]}_ROC'
     if not inst_num == None:
         save_path += f'_{inst_num}'
     return roc(Xs_, y_, m, 100, save_path=save_path+'.csv', area=True)
+
+def feature_importances(X, y, model='log', **kwargs):
+    y = y.to_numpy().ravel()
+    _Xs, Xs_, _y, y_ = split_and_scale(X, y)
+    M = model_dict[model]
+    m = M(**kwargs)
+    m.fit(_Xs, _y)
+    return m.feature_importances_
 
 def get_data_dict(save_path=None):
     import pandas as pd
@@ -101,3 +113,30 @@ def get_data_dict(save_path=None):
     if not save_path == None:
         data_dict.to_csv(save_path)
     return data_dict
+
+def rfc_cv(_X, X_, _y, y_, data_set_name):
+    n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
+    max_features = ['auto', 'sqrt']
+    max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
+    max_depth.append(None)
+    min_samples_split = [2, 5, 10]
+    min_samples_leaf = [1, 2, 4]
+    bootstrap = [True, False]
+    random_grid = {'n_estimators': n_estimators,
+                   'max_features': max_features,'max_depth': max_depth,
+                   'min_samples_split': min_samples_split,
+                   'min_samples_leaf': min_samples_leaf,
+                   'bootstrap': bootstrap}
+    rfc = RFC()
+    rfc_search = RSCV(estimator = rfc,
+                     param_distributions = random_grid,
+                     n_iter = 25, 
+                     cv = 5,
+                     verbose=3,  
+                     n_jobs = -1)
+    rfc_search.fit(_X, _y)
+    best_params = rfc_search.best_params_
+    rfc_best = rfc_search.best_estimator_
+    score = rfc_best.score(X_, y_)
+    auc_ = roc(X_, y_, rfc_best, 100, area=True, save_path=f'../Resources/{data_set_name}_RFC_CV')
+    return {'best_estimator': rfc_best, 'best_params': best_params, 'score': score, 'auc': auc_}

@@ -63,7 +63,7 @@ def predict():
 
         # use the model to make a prediction based on the users entry/features
         outcomes = ['high risk attrition customer', 'low risk attrition customer']
-        prediction = outcomes[rfc.predict_proba(features_scaled)[0]]
+        prediction = outcomes[rfc.predict(features_scaled)[0]]
 
         prediction_text = f'{prediction.capitalize()}.'
         return render_template('predict.html', prediction_text=prediction_text, entry=entry)
