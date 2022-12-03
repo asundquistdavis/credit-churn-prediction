@@ -36,11 +36,8 @@ underline
 
 .tab
 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .center 
