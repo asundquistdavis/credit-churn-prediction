@@ -79,7 +79,7 @@ def knn():
     return render_template('model/knn.html')
 
 # logistic regression
-@app.route('/logistic-regression')
+@app.route('/model/logistic-regression')
 def logistic_regression():
     return render_template('model/logistic_regression.html')
 

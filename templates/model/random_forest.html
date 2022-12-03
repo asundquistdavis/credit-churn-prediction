@@ -7,11 +7,11 @@
     <meta charset="utf-8">
 
     <!-- set the title -->
-    <title>Hosted Style Testing</title>
+    <title>Churn Random Forest Classifier</title>
 
     <!-- reset the style -->
     <link rel="stylesheet" href="../../static/css/reset.css">
-    <link rel="icon" type="image/x-icon" href="../Resources/churn.ico">
+    <link rel="icon" type="image/x-icon" href="../../Resources/churn.ico">
 
     <!-- set metadata -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,32 +39,27 @@
 
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../../credit-card-churn">Home</a>
+            <a class="navbar-brand" href="{{ url_for('about') }}">About</a>
+            <img src="../../Resources/churn.png" width="15" class="center" alt="Credit Card Churn Project Logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="../about">About</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         Machine Learning Models
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="knn"><span class="italic" class="italic">k-</span>Nearest Neighbors</a></li>
-                      <li><a class="dropdown-item" href="logistic_regression">Logistic Regression</a></li>
-                      <li><a class="dropdown-item" href="neural_network">Neural Network</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('knn') }}"><span class="italic" class="italic">k-</span>Nearest Neighbors</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('logistic_regression') }}">Logistic Regression</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('neural_network') }}">Neural Network</a></li>
                       <li><a class="dropdown-item" href="">Random Forest<span class="sr-only">(current)</span></a></li>
                     </ul>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="../predict">Make Prediction</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="../styles">Style-Tester-!!</a>
+                    <a class="nav-link" href="{{ url_for('predict') }}">Make Prediction</a>
                   </li>
               </ul>
             </div>
