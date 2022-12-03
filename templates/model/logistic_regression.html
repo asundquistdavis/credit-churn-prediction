@@ -159,6 +159,26 @@
                     <p class="h5 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve is below the line. If we care a lot about model quality, we’d pursue something 90% or higher.</p>
                     <hr>
                     <p class="h4 text-center">Here is the confusion matrix: </p> 
+                    
+                    <!-- test table -->
+                    <table class="table-lg table-bordered">
+                        <tr>
+                          <td> </td>
+                          <td class="bg-primary">( PP )</td>
+                          <td class="bg-secondary">( PF )</td>
+                        </tr>
+                        <tr>
+                          <td class="bg-warning">Positive</td>
+                          <td class="bg-success">(TP) 1053</td>
+                          <td class="bg-danger">(FN) 83</td>
+                        </tr>
+                        <tr>
+                          <td class="bg-secondary">Negative</td>
+                          <td class="bg-danger">(FP) 1074</td>
+                          <td class="bg-success">(TN) 322</td>
+                        </tr>
+                    </table>
+                    
                     <p class="h3 text-center">[[ 1053 true positive, 1074 false positive ]</p>
                     <p class="h3 text-center">[ 83 false negative,  322 true negative ]]</p>
                     <hr>
