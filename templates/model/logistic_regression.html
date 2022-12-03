@@ -68,39 +68,104 @@
                   </li>
               </ul>
             </div>
+
         </nav>
 
         <!-- Body Section -->
         <div class="row g-0">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <!-- <div class="border rounded bg-light m-2 p-2">
                     <p class="h6 text-center">intentionally Blank</p>
                 </div> -->
             </div>
-            
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center">To test our dataset, we also used Logistic Regression. Here were the results:</p>
-                    <p class="h5 text-center">Training Data Score: 0.8957208689927584</p>
-                    <p class="h5 text-center">Testing Data Score: 0.8969194312796208</p>
-                    <hr>
-                    <img src="logistic reg path" width="300" class="center" alt="Logistic Regression ROC Curve">
-                    <img src="../../Resources/churn.png" width="200" class="center" alt="Logistic Regression ROC Curve">
-                    <hr>
-                    <p class="h6 text-center">This is not really an ideal elbow curve but it shows that our model is decent. If you’re trying to identify customers that will leave soon, you could use this model to send them offers they might accept, to keep their business. It’s not perfect, but it could help you.</p>
-                    <p class="h4 text-center">AUC for the Logistic Regression Model: 0.7311381590021302</p>
-                    <p class="h6 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve (elbow curve) is below the line.</p>
-                    <hr>
-                    <p class="h3 text-center">Here is the confusion matrix: </p> 
-                    <p class="h4 text-center">[[ 1053 true positive, 1074 false positive ]</p>
-                    <p class="h4 text-center">[ 83 false negative,  322 true negative ]]</p>
-                    <p class="h6 text-center">-</p>
-                    <p class="h6 text-center">As you can see the model has a serious false positive problem. However, if you’re prioritized on keeping customers, you might find this acceptable, as it could be better to  give a special offer to someone who was going to stay on anyway than to ignore someone who was on the brink of leaving.</p>
+                    <p class="h5 text-center">To test our dataset, we also used Logistic Regression. Here were the results:</p>
+                    <p class="h4 text-center">Training Data Score: 0.8957208689927584</p>
+                    <p class="h4 text-center">Testing Data Score: 0.8969194312796208</p>
                 </div>
             </div>
+            <div class="col-md-2">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">Intenetionally Blank</p>
+                </div> -->
+            </div>
 
-            <div class="col-md-1">
+        </div>
+
+        <div class="row g-0">
+            <div class="col-md-3">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">intentionally Blank</p>
+                </div> -->
+            </div>
+            <div class="col-md-6">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2"></div>
+                    <div>
+                        <div class='tableauPlaceholder' id='viz1670029122829' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='Log Reg ROC ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizationsLOGREGROC&#47;LogRegROC' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' /><param name='display_count' value='yes' />
+                                <param name='language' value='en-US' /><param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1670029122829');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">Intenetionally Blank</p>
+                </div> -->
+            </div>
+
+        </div>
+
+        <div class="row g-0">
+            <div class="col-md-2">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">intentionally Blank</p>
+                </div> -->
+            </div>
+            <div class="col-md-8">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <p class="h5 text-center">This is not really ideal but it shows that our model is decent. A great model would look like a vertically flipped L. If you’re trying to identify customers that will leave soon, you could use this model to send them offers they might accept, to keep their business. It’s not perfect, but it could help you.</p>
+                    <hr>
+                    <p class="h4 text-center">AUC for the Logistic Regression Model: 0.7311381590021302</p>
+                    <p class="h5 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve is below the line. If we care a lot about model quality, we’d pursue something 90% or higher.</p>
+                    <hr>
+                    <p class="h4 text-center">Here is the confusion matrix: </p> 
+                    <p class="h3 text-center">[[ 1053 true positive, 1074 false positive ]</p>
+                    <p class="h3 text-center">[ 83 false negative,  322 true negative ]]</p>
+                    <hr>
+                    <p class="h5 text-center">As you can see the model has a serious false positive problem. However, if you’re prioritized on keeping customers, you might find this acceptable, as it could be better to  give a special offer to someone who was going to stay on anyway than to ignore someone who was on the brink of leaving.</p>
+                </div>
+            </div>
+            <div class="col-md-2">
                 <!-- <div class="border rounded bg-light m-2 p-2">
                     <p class="h6 text-center">Intenetionally Blank</p>
                 </div> -->
