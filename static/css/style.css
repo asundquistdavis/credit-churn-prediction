@@ -5,6 +5,11 @@ html *
     font-family: "Garamond", serif;
 }
 
+.select
+{
+    text-align: "." center !important;
+}
+
 .italic 
 {
     font-style: italic;
@@ -39,31 +44,6 @@ underline
     transform: translateX(-50%) !important;
 }
 
-/* #leaflet_map {
-    height:100vh;
-}
-
-#map_loc {
-    position: relative;
-}
-
-#button_loc {
-    position: relative;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-}
-
-#search_loc {
-    position: absolute !important;
-    top: 5% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-}
-
-#search_loc {
-    z-index: 1031 !important;
-} */
-
 .center 
 {
     display: block;
@@ -75,4 +55,10 @@ underline
 {
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.btn-block 
+{
+    display: block;
+    width: 100%;
 }
