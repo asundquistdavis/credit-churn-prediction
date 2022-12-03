@@ -31,6 +31,8 @@ def features_from(entry):
     features += income_map[entry['income']]
     return np.array([features])
 
+MODEL_TRHESHOLD = .9
+
 app = Flask(__name__)
 
 # home page with infor about project - static
@@ -63,7 +65,7 @@ def predict():
 
         # use the model to make a prediction based on the users entry/features
         outcomes = ['high risk attrition customer', 'low risk attrition customer']
-        prediction = outcomes[rfc.predict_proba(features_scaled)[0]]
+        prediction = outcomes[(0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)]
 
         prediction_text = f'{prediction.capitalize()}.'
         return render_template('predict.html', prediction_text=prediction_text, entry=entry)

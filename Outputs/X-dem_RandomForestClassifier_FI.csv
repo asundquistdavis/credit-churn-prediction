@@ -1,0 +1,22 @@
+,Features,Feature_Importances
+0,Customer_Age,0.6031428375474386
+1,Dependent_count,0.17698285423067078
+2,Gender_F,0.005400200834321635
+3,Gender_M,0.0056581110199343575
+4,Education_Level_College,0.013680989939696261
+5,Education_Level_Doctorate,0.008371723343635664
+6,Education_Level_Graduate,0.015893483392840104
+7,Education_Level_High School,0.014624727782115592
+8,Education_Level_Post-Graduate,0.010023900328596203
+9,Education_Level_Uneducated,0.013291860935775607
+10,Education_Level_Unknown,0.014512737610665892
+11,Marital_Status_Divorced,0.011133403954619928
+12,Marital_Status_Married,0.016607146693640922
+13,Marital_Status_Single,0.015611519600768663
+14,Marital_Status_Unknown,0.010479395028325811
+15,Income_Category_$120K +,0.009042987080254389
+16,Income_Category_$40K - $60K,0.014957267759363692
+17,Income_Category_$60K - $80K,0.009166178493410709
+18,Income_Category_$80K - $120K,0.009909557457285617
+19,Income_Category_Less than $40K,0.012744160814885568
+20,Income_Category_Unknown,0.008764956151754148
