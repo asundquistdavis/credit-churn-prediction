@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="Resources/churn.ico">
 
     <!-- reset the style -->
-    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="../../static/css/reset.css">
 
     <!-- set metadata -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
     <!-- now link to custom style.css -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
 </head>
 
 <body>
@@ -81,67 +81,8 @@
             
             <div class="col-md-10">
                 <!-- Row element -->
-
-                <!-- this is the interact form to enter predictions -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <form action="{{url_for('predict')}}" method="post">
-
-                        <!-- age: text entry -> cast to int -->
-                        <label for="age">Age: </label>
-                        <input id="age" name="age" type="text" required="required" {% if entry %} value={{entry["age"]}} {% endif %}/>
-
-                        <!-- numdep: text -> cast to int -->
-                        <label for="numdep">Number of Dependents</label>
-                        <input id="numdep" name="numdep" type="text" required="required" {% if entry %} value={{entry["numdep"]}} {% endif %}/>
-
-                        <!-- gender: radio button -> either M or F -->
-                        <p>Gender</p>
-                        <label for="m">Male</label>
-                        <input id="m" name="gender" type="radio" required="required"  value="m" {% if entry and entry["gender"] == 'm' %} checked {% else %} checked {% endif %}/>
-                        <label for="f">Female</label>
-                        <input id="f" name="gender" type="radio" required="required" value="f" {% if entry and entry["gender"] == 'f' %} checked {% endif %}/>
-
-                        <!-- edclvl -->
-                        <p>Education Level</p>
-                        <label for="u">Uneducated</label>
-                        <input id="u" name="edclvl" type="radio" required="required"  value="u" {% if (entry and entry["edclvl"] == 'u') %} checked {% else %} checked {% endif %}/>
-                        <label for="h">High School</label>
-                        <input id="h" name="edclvl" type="radio" required="required"  value="h" {% if (entry and entry["edclvl"] == 'h') %} checked {% endif %}/>
-                        <label for="c">College</label>
-                        <input id="c" name="edclvl" type="radio" required="required"  value="c" {% if (entry and entry["edclvl"] == 'c') %} checked {% endif %}/>
-                        <label for="g">Graduate</label>
-                        <input id="g" name="edclvl" type="radio" required="required"  value="g" {% if (entry and entry["edclvl"] == 'g') %} checked {% endif %}/>
-                        <label for="p">Post College</label>
-                        <input id="p" name="edclvl" type="radio" required="required"  value="p" {% if (entry and entry["edclvl"] == 'p') %} checked {% endif %}/>
-                        <label for="d">Doctorate</label>
-                        <input id="d" name="edclvl" type="radio" required="required"  value="d" {% if (entry and entry["edclvl"] == 'd') %} checked {% endif %}/>
-                        
-                        <!-- marsta -->
-                        <p>Marital Status</p>
-                        <label for="s">Single</label>
-                        <input id="s" name="marsta" type="radio" required="required"  value="s" {% if (entry and entry["marsta"] == 's') %} checked {% else %} checked {% endif %}/>
-                        <label for="m">Married</label>
-                        <input id="m" name="marsta" type="radio" required="required"  value="m" {% if (entry and entry["marsta"] == 'm') %} checked {% endif %}/>
-                        <label for="d">Divored</label>
-                        <input id="d" name="marsta" type="radio" required="required"  value="d" {% if (entry and entry["marsta"] == 'd') %} checked {% endif %}/>
-                        
-                        <!-- income -->
-                        <p>Annual Income</p>
-                        <label for="i1">Less than $40K</label>
-                        <input id="i1" name="income" type="radio" required="required"  value="i1" {% if (entry and entry["income"] == 'i1') %} checked {% else %} checked {% endif %}/>
-                        <label for="i2">Between $40K and $60K</label>
-                        <input id="i2" name="income" type="radio" required="required"  value="i2" {% if (entry and entry["income"] == 'i2') %} checked {% endif %}/>
-                        <label for="i3">Between $60K and $80K</label>
-                        <input id="i3" name="income" type="radio" required="required"  value="i3" {% if (entry and entry["income"] == 'i3') %} checked {% endif %}/>
-                        <label for="i4">Between $80K and $120K</label>
-                        <input id="i4" name="income" type="radio" required="required"  value="i4" {% if (entry and entry["income"] == 'i4') %} checked {% endif %}/>
-                        <label for="i5">Greater than $120K</label>
-                        <input id="i5" name="income" type="radio" required="required"  value="i5" {% if (entry and entry["income"] == 'i5') %} checked {% endif %}/>
-                       
-                        <!-- button to submit -->
-                        <button type="submit" class="btn btn-outline-success btn-sm">Predict</button>
-                    </form>
-                    <p>{{prediction_text}}</p>
+                    <p class="h5 text-center">This is a machine for predicting risk of customer attrition based upon profile demography inputs. It isntended to inform marketing decisions. With this tool we can look at which clients are most likely retained, as well as which clients are high risk of attrition. The machine learning uses a random forest classifier. For more information about why this method is being used, please not the ROC curve visualizations below comparing the accuracy of some of the methods we used.</p>
                 </div>
             </div>
 
@@ -150,7 +91,197 @@
                     <p class="h6 text-center">Intenetionally Blank</p>
                 </div> -->
             </div>
+        </div>
+        
+        <!-- Start of Prediction Machine -->
+        <form action="{{url_for('predict')}}" method="post">
 
+            <!-- Stay within Bounds -->
+            <div class="select">
+            
+            
+                <div class="row g-0">
+                    <div class="col-md-1">
+                        <!-- <div class="border rounded bg-light m-2 p-2">
+                            <p class="h6 text-center">intentionally Blank</p>
+                        </div> -->
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <!-- Row element -->
+                        <div class="border rounded bg-light m-2 p-2">
+                            <!-- age: text entry -> cast to int -->
+                            <label class="h3 text-center" for="age">Age</label><br>
+                            <input id="age" name="age" type="text" required="required" {% if entry %} value={{entry["age"]}} {% endif %}/><br>
+                            
+                            <!-- gender: radio button -> either M or F -->
+                            <br><p class="h3 text-center">Gender</p>
+                            <input id="m" name="gender" type="radio" required="required"  value="m" {% if entry and entry["gender"] == 'm' %} checked {% else %} checked {% endif %}/>
+                            <label for="m">Male</label><br>
+                            <input id="f" name="gender" type="radio" required="required" value="f" {% if entry and entry["gender"] == 'f' %} checked {% endif %}/>
+                            <label for="f">Female</label>
+                            <hr>
+
+                            <!-- numdep: text -> cast to int -->
+                            <label class="h3 text-center" for="numdep">Dependents</label><br>
+                            <input id="numdep" name="numdep" type="text" required="required" {% if entry %} value={{entry["numdep"]}} {% endif %}/><br>
+                        
+                            <!-- marsta -->
+                            <br><p class="h3 text-center">Marital Status</p>
+                            <input id="s" name="marsta" type="radio" required="required"  value="s" {% if (entry and entry["marsta"] == 's') %} checked {% else %} checked {% endif %}/>
+                            <label for="s">Single</label><br>
+                            <input id="m" name="marsta" type="radio" required="required"  value="m" {% if (entry and entry["marsta"] == 'm') %} checked {% endif %}/>
+                            <label for="m">Married</label><br>
+                            <input id="d" name="marsta" type="radio" required="required"  value="d" {% if (entry and entry["marsta"] == 'd') %} checked {% endif %}/>
+                            <label for="d">Divored</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <!-- Row element -->
+                        <div class="border rounded bg-light m-2 p-2">
+                            <!-- edclvl -->
+                            <p class="h3 text-center">Education Level</p><br>
+                            <input id="u" name="edclvl" type="radio" required="required"  value="u" {% if (entry and entry["edclvl"] == 'u') %} checked {% else %} checked {% endif %}/>
+                            <label for="u">Uneducated</label><br>
+                            <input id="h" name="edclvl" type="radio" required="required"  value="h" {% if (entry and entry["edclvl"] == 'h') %} checked {% endif %}/>
+                            <label for="h">High School</label><br>
+                            <input id="c" name="edclvl" type="radio" required="required"  value="c" {% if (entry and entry["edclvl"] == 'c') %} checked {% endif %}/>
+                            <label for="c">College</label><br>
+                            <input id="g" name="edclvl" type="radio" required="required"  value="g" {% if (entry and entry["edclvl"] == 'g') %} checked {% endif %}/>
+                            <label for="g">Graduate</label><br>
+                            <input id="p" name="edclvl" type="radio" required="required"  value="p" {% if (entry and entry["edclvl"] == 'p') %} checked {% endif %}/>
+                            <label for="p">Post College</label><br>
+                            <input id="d" name="edclvl" type="radio" required="required"  value="d" {% if (entry and entry["edclvl"] == 'd') %} checked {% endif %}/>
+                            <label for="d">Doctorate</label><hr>
+
+                            <!-- income -->
+                            <p class="h3 text-center">Annual Income</p><br>
+                            <input id="i1" name="income" type="radio" required="required"  value="i1" {% if (entry and entry["income"] == 'i1') %} checked {% else %} checked {% endif %}/>
+                            <label for="i1">Less than $40K</label><br>
+                            <input id="i2" name="income" type="radio" required="required"  value="i2" {% if (entry and entry["income"] == 'i2') %} checked {% endif %}/>
+                            <label for="i2">Between $40K and $60K</label><br>
+                            <input id="i3" name="income" type="radio" required="required"  value="i3" {% if (entry and entry["income"] == 'i3') %} checked {% endif %}/>
+                            <label for="i3">Between $60K and $80K</label><br>
+                            <input id="i4" name="income" type="radio" required="required"  value="i4" {% if (entry and entry["income"] == 'i4') %} checked {% endif %}/>
+                            <label for="i4">Between $80K and $120K</label><br>
+                            <input id="i5" name="income" type="radio" required="required"  value="i5" {% if (entry and entry["income"] == 'i5') %} checked {% endif %}/>
+                            <label for="i5">Greater than $120K</label>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-1">
+                        <!-- <div class="border rounded bg-light m-2 p-2">
+                            <p class="h6 text-center">Intenetionally Blank</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-0">
+                <div class="col-md-1">
+                    <!-- <div class="border rounded bg-light m-2 p-2">
+                        <p class="h6 text-center">intentionally Blank</p>
+                    </div> -->
+                </div>
+                
+                <div class="col-md-10">
+                    <!-- Row element -->
+                    <div class="border rounded bg-light m-2 p-2">
+                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Make Profile Prediction of Attrition Risk</button>   
+                    </div>
+                </div>    
+                <div class="col-md-1">
+                    <!-- <div class="border rounded bg-light m-2 p-2">
+                        <p class="h6 text-center">Intenetionally Blank</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Stay within Bounds -->
+        
+        </form>
+        
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">intentionally Blank</p>
+                </div> -->
+            </div>
+            
+            <div class="col-md-10">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <p class="h3 text-center">{{prediction_text}}</p>
+                </div>
+            </div>    
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">Intenetionally Blank</p>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Visualizations -->
+        <!-- Body Section -->
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">intentionally Blank</p>
+                </div> -->
+            </div>
+            <div class="col-md-5">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'><noscript><a href='#'><img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OutputVisualizations&#47;RFCROC' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669769025555');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <!-- <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'><noscript><a href='#'><img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OutputVisualizations&#47;RFCROC' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669769025555');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">Intenetionally Blank</p>
+                </div> -->
+            </div>
+        </div><!-- Body Section -->
+        
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">intentionally Blank</p>
+                </div> -->
+            </div>
+            <div class="col-md-5">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'><noscript><a href='#'><img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OutputVisualizations&#47;RFCROC' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669769025555');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <!-- <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'><noscript><a href='#'><img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OutputVisualizations&#47;RFCROC' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669769025555');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <!-- <div class="border rounded bg-light m-2 p-2">
+                    <p class="h6 text-center">Intenetionally Blank</p>
+                </div> -->
+            </div>
         </div>
             
     </div>
