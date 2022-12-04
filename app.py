@@ -94,7 +94,7 @@ def random_forest_classifier():
     return render_template('model/random_forest.html')
 
 # icon logo
-@app.route('/Resources/churn.ico')
+@app.route('..Resources/churn.ico')
 def icon():
     return render_template('..Resources/churn.ico')
 
