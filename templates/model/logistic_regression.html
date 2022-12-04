@@ -32,7 +32,6 @@
             <div class="col-md-12">
                 <div class="border rounded bg-light m-2 p-2">
                     <h3 class="display-4 text-center">Logistic Regression</h3>
-                    <!-- <p class="text-center">Use the interactive map below to explore your options!</p> -->
                 </div>
             </div>
         </div>
@@ -52,7 +51,7 @@
                         Machine Learning Models
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url_for('knn') }}"><span class="italic">k-</span>Nearest Neighbors</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('knn') }}"><span class="italic">k-</span>Nearest Neighbors<span class="italic" class="sr-only">(current)</span></a></li>
                       <li><a class="dropdown-item" href="">Logistic Regression<span class="italic" class="sr-only">(current)</span></a></li>
                       <li><a class="dropdown-item" href="{{ url_for('neural_network') }}">Neural Network</a></li>
                       <li><a class="dropdown-item" href="{{ url_for('random_forest_classifier') }}">Random Forest</a></li>
@@ -63,16 +62,14 @@
                   </li>
               </ul>
             </div>
-
         </nav>
 
         <!-- Body Section -->
         <div class="row g-0">
             <div class="col-md-2">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">intentionally Blank</p>
-                </div> -->
+                <!-- Intentionally Blank -->
             </div>
+            
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
@@ -81,25 +78,24 @@
                     <p class="h4 text-center">Testing Data Score: 0.8969194312796208</p>
                 </div>
             </div>
+            
             <div class="col-md-2">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Intenetionally Blank</p>
-                </div> -->
+                <!-- Intentionally Blank -->
             </div>
-
         </div>
 
+        <!-- Body Section -->
         <div class="row g-0">
             <div class="col-md-3">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">intentionally Blank</p>
-                </div> -->
+                <!-- Intentionally Blank -->
             </div>
             <div class="col-md-6">
                 <!-- Row element -->
-                <div class="border rounded bg-light m-2 p-2"></div>
-                    <div>
-                        <div class='tableauPlaceholder' id='viz1670029122829' style='position: relative'>
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        
+                        <!-- ROC Logistic Regression -->
+                        <div class='tableauPlaceholder' id='viz1670187623674' style='position: relative'>
                             <noscript>
                                 <a href='#'>
                                     <img alt='Log Reg ROC ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1_rss.png' style='border: none' />
@@ -110,8 +106,7 @@
                                 <param name='embed_code_version' value='3' />
                                 <param name='site_root' value='' />
                                 <param name='name' value='OutputVisualizationsLOGREGROC&#47;LogRegROC' />
-                                <param name='tabs' value='no' />
-                                <param name='toolbar' value='yes' />
+                                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
                                 <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1.png' />
                                 <param name='animate_transition' value='yes' />
                                 <param name='display_static_image' value='yes' />
@@ -123,72 +118,50 @@
                             </object>
                         </div>
                         <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1670029122829');
+                            var divElement = document.getElementById('viz1670187623674');
                             var vizElement = divElement.getElementsByTagName('object')[0];
                             vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
                             var scriptElement = document.createElement('script');
                             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
+                        </script> 
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Intenetionally Blank</p>
-                </div> -->
-            </div>
 
+            <div class="col-md-3">
+                <!-- Intenetionally Blank -->
+            </div>
         </div>
 
+        <!-- Body Section -->
         <div class="row g-0">
             <div class="col-md-2">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">intentionally Blank</p>
-                </div> -->
+                <!-- Intentionally Blank -->
             </div>
+            
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
                     <p class="h5 text-center">This is not really ideal but it shows that our model is decent. A great model would look like a vertically flipped L. If you’re trying to identify customers that will leave soon, you could use this model to send them offers they might accept, to keep their business. It’s not perfect, but it could help you.</p>
                     <hr>
                     <p class="h4 text-center">AUC for the Logistic Regression Model: 0.7311381590021302</p>
-                    <p class="h5 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve is below the line. If we care a lot about model quality, we’d pursue something 90% or higher.</p>
+                    <p class="h6 text-center">This is an acceptable AUC but it is not that great. It means that 73% of our ROC curve is below the line. If we care a lot about model quality, we’d pursue something 90% or higher.</p>
                     <hr>
-                    <p class="h4 text-center">Here is the confusion matrix: </p> 
-                    
-                    <!-- test table -->
-                    <table class="table-lg table-bordered">
-                        <tr>
-                          <td> </td>
-                          <td class="bg-primary">( PP )</td>
-                          <td class="bg-secondary">( PF )</td>
-                        </tr>
-                        <tr>
-                          <td class="bg-warning">Positive</td>
-                          <td class="bg-success">(TP) 1053</td>
-                          <td class="bg-danger">(FN) 83</td>
-                        </tr>
-                        <tr>
-                          <td class="bg-secondary">Negative</td>
-                          <td class="bg-danger">(FP) 1074</td>
-                          <td class="bg-success">(TN) 322</td>
-                        </tr>
-                    </table>
-                    
-                    <p class="h3 text-center">[[ 1053 true positive, 1074 false positive ]</p>
-                    <p class="h3 text-center">[ 83 false negative,  322 true negative ]]</p>
+                    <p class="h5 text-center">Here is the confusion matrix:</p>
+                    <p class="h4 text-center">[[1053 true positive, 1074 false positive]</p>                         
+                    <p class="h4 text-center">[  83 false negative,  322 true negative]]</p>
                     <hr>
-                    <p class="h5 text-center">As you can see the model has a serious false positive problem. However, if you’re prioritized on keeping customers, you might find this acceptable, as it could be better to  give a special offer to someone who was going to stay on anyway than to ignore someone who was on the brink of leaving.</p>
+                    <p class="h5 text-center">As you can see the model has a serious false positive problem. However, if you’re prioritized on keeping customers, you might find this acceptable, as it could be better to  give a special offer to someone who was going to stay on anyway than to ignore someone who was on the brink of leaving.</p>   
                 </div>
             </div>
-            <div class="col-md-2">
-                <!-- <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Intenetionally Blank</p>
-                </div> -->
-            </div>
 
+            <div class="col-md-2">
+                <!-- Intentionally Blank -->
+            </div>
         </div>
+            
+    </div>
             
     </div>
 
@@ -196,7 +169,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
             crossorigin="anonymous"></script>
-    
+            
 </body>
 
 </html>
