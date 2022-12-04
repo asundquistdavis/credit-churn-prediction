@@ -59,7 +59,7 @@ def predict():
 
         # check if age and number of deps. are numeric
         if not is_valid(entry)[0]:
-            return render_template('predict.html', prediction_text=is_valid(entry)[1], entry=entry)
+            return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text=is_valid(entry)[1], entry=entry)
         
         # build feature array from entry
         features = features_from(entry)
@@ -74,9 +74,9 @@ def predict():
         prediction = outcomes[(0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)]
 
         prediction_text = f'{prediction.capitalize()}.'
-        return render_template('predict.html', prediction_text=prediction_text, entry=entry)
+        return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text=prediction_text, entry=entry)
     else: 
-        return render_template('predict.html', prediction_text='Make a prediction!')
+        return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text='Make a prediction!')
 
 # --- following '/models/' routes and for each model - all static
 # knn
