@@ -65,6 +65,12 @@
             </div>
         </nav>
 
+
+
+
+
+
+
         <!-- Body Section -->
         <div class="row g-0">
             <div class="col-md-1">
@@ -74,7 +80,17 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias suscipit mollitia eum totam repellendus vitae cupiditate at, quas, quia sint voluptatem in porro placeat dicta saepe? Cum autem quam possimus?</p>
+                    <p class="h6 text-center"><u>R</u>andom <u>F</u>orest <u>C</u>lassifiers use an ensemble method meaning models are created by combining the result of many individual decision tree models. Decision trees classify a set of features by combining many layers of sub-classifications. RFCs train small decision trees with only a few layers, and use the most popular result of all the trees to classify the set of features.</p>
+                    <p class="h6 text-center">RFCs can produce powerful models and are particularly good at working with categoricals. A disadvantage is they can train to favor some features more than others. Another drawback is that the model is not easily interpreted; that is, it will give clear results but the reason for each classification is hidden under the hood. In many situations RFC models perform as good or better than other types of models.</p>
+                    <hr>
+                    <p class="h4 text-center">Using RFC on the Credit Card Churn Data</p>
+                    <p class="h6 text-center">RFC is a strong candidate for this data because of the size of the data, both numbers of samples and number of features. It is also expected to handle the many categorical features well. For predicting churn, it is not necessary to understand the models’ reasoning and so RFC's lack of interoperability should not be concerning. It is also expected to outperform some of the other model types like logistic regression. </p>
+                    <p class="h6 text-center">The credit card data includes two broad types of features: demographic and usage. Demographic features should be considered easy to obtain while the latter require knowing a customer's usage history, which in some use cases does not exist. Because of this, a RFC model will be fitted on the demographic data, separately, to see if a functioning model can be made without usage history. The base model, trained on full data will serve as comparison to test the demographic models performance.</p>
+                    <p class="h6 text-center">It is also noted that, while this data set is medium sized (~25,000 samples) producing a model for a much larger set of data could be time consuming and resource demanding. Because of this, a RFC model will be fitted on a PCA dimensionally reduced set of data.</p>
+                    <hr>
+                    <p class="h4 text-center">Evaluate Model Using All Features</p>
+                    <p class="h6 text-center">The first RFC model created, the base model, uses the full data set and is expected to perform the best since it uses all 37 input features. It scores 97% accuracy on the testing set of data. This is significantly higher than some of the other models trained like logistic regression and k-nearest neighbors, both scoring around 89% accuracy on testing data. The base RFC model also scores a 99% AUC-ROC which means that the model can be tuned to favor a low false positive rate or high true positive rate base of the use case.</p>
+                    <p class="h6 text-center">The model also gives some insight on how the demographics and pca models will perform by showing the feature importances. The graph of feature importances shows which features are used the most across the random forest. Usage features like `Total_Trans_Ct` and `Total_Trans_Amt` show the highest importance. Demographic features like `Gender`, `Education_Level` and `Marital_Status` show little importances to the base model. This could indicate the demographic model will have trouble fitting to just the demographic data.</p>
                 </div>
             </div>
 
@@ -90,11 +106,13 @@
             </div>
 
             <div class="col-md-5">
-                <!-- ROC Random Forest -->
                 <div class="border rounded bg-light m-2 p-2">
                     <div class="tab">
+                        <!-- ROC Full Data Set -->
+                        <!-- Andrew A1 -->
 
-                        <!-- kNN -->
+
+                        <!-- kNN Place Holder-->
                         <div class='tableauPlaceholder' id='viz1669773307560' style='position: relative'>
                             <noscript>
                                 <a href='#'>
@@ -126,52 +144,21 @@
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
                         </script>
 
-
-
-
-
-
-
-
-                        <!-- <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'>
-                            <noscript>
-                                <a href='#'>
-                                    <img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' />
-                                </a>
-                            </noscript>
-                            <object class='tableauViz'  style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='OutputVisualizations&#47;RFCROC' />
-                                <param name='tabs' value='no' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en-US' />
-                                <param name='filter' value='publish=yes' />
-                            </object>
-                        </div>
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1669769025555');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            vizElement.style.width='100%';
-                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script> -->
                     </div>
                 </div>
             </div>
 
             <div class="col-md-5">
-                <!-- ROC Random Forest -->
                 <div class="border rounded bg-light m-2 p-2">
                     <div class="tab">
+                        <!-- ROC Full Data Set -->
+                        <!-- Andrew A1 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- Random Forest ROC -->
                         <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'>
                             <noscript>
                                 <a href='#'>
@@ -221,17 +208,206 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, iste quibusdam ipsam recusandae fuga cum sapiente necessitatibus cumque ut sequi facere velit aut tempore soluta inventore in. Sunt, exercitationem sint.</p>
-                    <p class="h6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi beatae id minus quam ipsa repellat voluptates quia ducimus excepturi sapiente quos rerum, unde magni, dignissimos dolores tenetur suscipit vitae! Nobis?</p>
+                    <p class="h4 text-center">Evaluate Model with Just Demographics Data</p>
+                    <p class="h6 text-center">The demographic RFC model is created in the same way as the base model except it is only given demographic features data to train on. It scores an accuracy of 77% on the testing data. Not only is this a significantly lower accuracy than the logistic regression and knn models but it is also less than random chance. The initial data is 86% existing customers (14% attrited) meaning that a model that only guesses existing customers for every output will score higher than the demographic RFC. </p>
+                    <p class="h6 text-center">The RFC plot and AUC-ROC show similar results: the ROC is close to a straight line from the origin to (1, 1) meaning that there is an equal trade of between false positive rate and true positive rate when choosing a model threshold. The AUC-ROC score of 48% indicates that the ROC cuts the possibility space into two pieces, confirming that the ROC is approximately a straight line.</p> 
                 </div>
             </div>
 
             <div class="col-md-1">
                 <!-- Intentionally Blank -->
             </div>
-
         </div>
+
+        <!-- Body Section -->
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+
+            <div class="col-md-5">
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <!-- Random Forest ROC -->
+                        <!-- Andrew A3 -->  
+                        <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizations&#47;RFCROC' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1669769025555');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';
+                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    </div>
+                </div>
+            </div>
             
+            
+            <div class="col-md-5">
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <!-- Random Forest F1 -->
+                        <!-- Andrew A4 -->
+
+
+                        <!-- kNN Place Holder-->
+                        <div class='tableauPlaceholder' id='viz1669773307560' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='KNN ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsKNN&#47;KNN_1&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizationsKNN&#47;KNN_1' />
+                                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsKNN&#47;KNN_1&#47;1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1669773307560');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+        </div>
+        
+        <!-- Body Section -->
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+            
+            <div class="col-md-10">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <p class="h4 text-center">Evaluate Model with PCA</p>
+                    <p class="h6 text-center">While the demographics data did not produce an RFC model that could make prediction better than chance, it is still possible to create an accurate model with less than the full set of data. PCA is used to project samples onto a subspace of the feature space that preserves the most variation to noise in the output. The PCA RFC model is trained with data that is dimensionally reduced using PCA and tested with data that uses the same PCA transformation. The testing accuracy score is 89% - similar to logistic regression and knn models. This model shows that it is possible to produce an accurate model with reduced dimensionality if the *right* combination of features are used.</p>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+        </div>
+
+        <!-- Body Section -->
+        <div class="row g-0">
+            <div class="col-md-3">
+                <!-- Intentionally Blank -->
+            </div>
+
+            <div class="col-md-6">
+                <div class="border rounded bg-light m-2 p-2">
+                    <div class="tab">
+                        <!-- Random Forest ROC with PCA -->
+                        <!-- Andrew A5 -->  
+                        <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizations&#47;RFCROC' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1669769025555');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';
+                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <!-- Intentionally Blank -->
+            </div>
+        </div>
+
+
+
+        <!-- Body Section -->
+        <div class="row g-0">
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+            
+            <div class="col-md-10">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <p class="h4 text-center">Conclusions</p>
+                    <p class="h6 text-center">The base RFC model, trained with all features of the credit card churn data set, scores a high accuracy and appears to be a useful model for predicting credit card churn. In addition to the high accuracy of 95%, the model also possesses an ROC with a high 98% AUC meaning the model can be tuned to fit the use case. For both of these aspects, RFC outperforms the logistic regression and knn models and shows similar results to a neural network. </p>
+                    <p class="h6 text-center">Accuracy is lost when trying to make models trained on fewer features and the predictive power cannot fully match the model trained with all the features, which is expected. The demographics model does not show to perform any better than random chance and because of this, it does not make a good model for predicting credit card churn. The PCA model does perform better and on much larger sets of data this set might be necessary to save time and resources on model training. Still it is significantly less accurate than the base model and if the use case requires high accuracy, a neural net or the base model would be necessary.</p>
+                    <hr>
+                    <p class="h6 text-center">Further analysis could explore using the demographics data to first predict key usage features and then use the usage features to predict churn (which has already been shown to be effective with the base model). This type of compounded model could be successful if a correlation exists between usage and demographics. The data set is constrained by only having around 16% attrited customers. Another thing to explore is synthesizing more attrited data to see if these models hold for a more balanced data set.</p>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <!-- Intentionally Blank -->
+            </div>
+        </div>
+
     </div>
 
     <!-- bootstrap js scripts -->
