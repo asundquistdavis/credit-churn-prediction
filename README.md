@@ -9,6 +9,8 @@
 * Andrew Sundquist (asundquistdavis) - Lead Web Hosting and Random Forest Classifier analysis
 * John Torgerson (JohnTorgerson) - Lead Web design
 ---
+### Instructions
+
 
 ### Overview:
 This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. The original data indicates existing and non-existing users however, the models created are used as a way to predict which types of users are more likeing to close their accounts in the future.
