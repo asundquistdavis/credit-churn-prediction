@@ -8,7 +8,8 @@ from sklearn.linear_model import LogisticRegression as LRC
 from sklearn.ensemble import RandomForestClassifier as RFC
 from sklearn.neighbors import KNeighborsClassifier as KNC
 from sklearn.svm import SVC
-model_dict = {'log': LRC, 'rfc': RFC, 'knn': KNC, 'svc': SVC}
+from sklearn.linear_model import LinearRegression as MLR
+model_dict = {'log': LRC, 'rfc': RFC, 'knn': KNC, 'svc': SVC, 'mlr': MLR}
 
 import math
 import pandas as pd
