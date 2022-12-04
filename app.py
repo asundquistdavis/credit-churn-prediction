@@ -31,6 +31,7 @@ def features_from(entry):
     features += income_map[entry['income']]
     return np.array([features])
 
+# this sets the threshold for the rfc model (i.e. positive prediction probabilities greater than `MODEL_THRESHOLD` will be considered positve cases) 
 MODEL_TRHESHOLD = .9
 
 app = Flask(__name__)
@@ -39,9 +40,6 @@ app = Flask(__name__)
 @app.route('/')
 def about():
     return render_template('about.html')
-
-# proposed about the data
-# TK
 
 # interactive prediction page - dynamic
 @app.route('/predict', methods=['GET', 'POST'])
@@ -92,8 +90,6 @@ def neural_network():
 @app.route('/model/random-forest-classifier')
 def random_forest_classifier():
     return render_template('model/random_forest.html')
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
