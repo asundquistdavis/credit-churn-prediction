@@ -195,7 +195,7 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h3 text-center">{{prediction_text}}</p>
+                    <p class="h3 text-center">{{prediction_text|safe}}</p>
                 </div>
             </div>    
             <div class="col-md-1">
@@ -223,25 +223,24 @@
         <!-- Visualizations -->
         <!-- ROC Random Forest -->
         <div class="row g-0">
-            <div class="col-md-1">
+            <div class="col-md-3">
                 <!-- Intentionally Blank -->
             </div>
-            <div class="col-md-10">
+            <div class="col-md-6">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
 
-                    <label for="demo">Demographic</label>
+                    <div style="text-align:center">
+                    <label class="h3" for="demo">Demographic</label>
                     <select name="demo" id="demo" onchange="changeView(this.value)">
-                        {% for demo in demographics %}
-                        <option value="{{ demo }}">{{ demo }}</option>
-                        {% endfor %}
+
                     </select>
 
-                    <img id="demoView", height="500px"/>                    
-                
+                    <img id="demoView" class="m-auto d-block" width="100%"/>                    
+                    
                 </div>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-3">
                 <!-- Intentionally Blank -->
             </div>
         </div>
