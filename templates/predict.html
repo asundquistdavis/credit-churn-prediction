@@ -32,7 +32,6 @@
             <div class="col-md-12">
                 <div class="border rounded bg-light m-2 p-2">
                     <h3 class="display-4 text-center">Predict Credit Card Churn</h3>
-                    <!-- <p class="text-center">Use the interactive map below to explore your options!</p> -->
                 </div>
             </div>
         </div>
@@ -57,6 +56,9 @@
                       <li><a class="dropdown-item" href="{{ url_for('neural_network') }}">Neural Network</a></li>
                       <li><a class="dropdown-item" href="{{ url_for('random_forest_classifier') }}">Random Forest</a></li>
                     </ul>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('comparison') }}">Compare Models</a>
                   </li>
                   <li class="nav-item active">
                     <a class="nav-link" href="">Make Prediction<span class="italic" class="sr-only">(current)</span></a>

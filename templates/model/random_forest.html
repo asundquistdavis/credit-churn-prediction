@@ -58,6 +58,9 @@
                     </ul>
                   </li>
                   <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('comparison') }}">Compare Models</a>
+                  </li>
+                  <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('predict') }}">Make Prediction</a>
                   </li>
               </ul>
@@ -103,36 +106,36 @@
                     <div class="tab">
                         <!-- Random Forest ROC -->
                         <!-- A1 -->
-                <div class='tableauPlaceholder' id='viz1670197388748' style='position: relative'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='ROC for Random Forest Classifier Trained on Full Data Set ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;Outputvisualizations&#47;1_rss.png' style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz'  style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-                        <param name='embed_code_version' value='3' /> 
-                        <param name='site_root' value='' />
-                        <param name='name' value='OutputVisualizations&#47;Outputvisualizations' />
-                        <param name='tabs' value='no' /><param name='toolbar' value='yes' />
-                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;Outputvisualizations&#47;1.png' /> 
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
-                </div>                
-                <script type='text/javascript'>                    
-                    var divElement = document.getElementById('viz1670197388748');                    
-                    var vizElement = divElement.getElementsByTagName('object')[0];                    
-                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-                    var scriptElement = document.createElement('script');                    
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                </script>
+                        <div class='tableauPlaceholder' id='viz1670197388748' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='ROC for Random Forest Classifier Trained on Full Data Set ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;Outputvisualizations&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                <param name='embed_code_version' value='3' /> 
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizations&#47;Outputvisualizations' />
+                                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;Outputvisualizations&#47;1.png' /> 
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>                
+                        <script type='text/javascript'>                    
+                            var divElement = document.getElementById('viz1670197388748');                    
+                            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+                            var scriptElement = document.createElement('script');                    
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        </script>
                     </div>
                 </div>
             </div>
@@ -252,38 +255,37 @@
                     <div class="tab">
                         <!-- Random Forest F1 -->
                         <!-- A4 -->
-                <div class='tableauPlaceholder' id='viz1670195638684' style='position: relative'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Feature Importances of Random Forest Model Trained on Demographic Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d&#47;1_rss.png' style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz'  style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-                        <param name='embed_code_version' value='3' /> 
-                        <param name='site_root' value='' />
-                        <param name='name' value='OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d&#47;1.png' /> 
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
-                </div>                
-                <script type='text/javascript'>                    
-                    var divElement = document.getElementById('viz1670195638684');                    
-                    var vizElement = divElement.getElementsByTagName('object')[0];                    
-                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-                    var scriptElement = document.createElement('script');                    
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                </script>
-
+                        <div class='tableauPlaceholder' id='viz1670195638684' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt='Feature Importances of Random Forest Model Trained on Demographic Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d&#47;1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                <param name='embed_code_version' value='3' /> 
+                                <param name='site_root' value='' />
+                                <param name='name' value='OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCFeatureImportancex-d&#47;RFCFeatureImportancex-d&#47;1.png' /> 
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>                
+                        <script type='text/javascript'>                    
+                            var divElement = document.getElementById('viz1670195638684');                    
+                            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+                            var scriptElement = document.createElement('script');                    
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        </script>
                     </div>
                 </div>
             </div>
@@ -301,10 +303,10 @@
             
             <div class="col-md-10">
                 <!-- Row element -->
-                <div class="border rounded bg-light m-2 p-2">
+                <!-- <div class="border rounded bg-light m-2 p-2">
                     <p class="h4 text-center">Evaluate Model with PCA</p>
                     <p class="h6 text-center">While the demographics data did not produce an RFC model that could make prediction better than chance, it is still possible to create an accurate model with less than the full set of data. PCA is used to project samples onto a subspace of the feature space that preserves the most variation to noise in the output. The PCA RFC model is trained with data that is dimensionally reduced using PCA and tested with data that uses the same PCA transformation. The testing accuracy score is 89% - similar to logistic regression and knn models. This model shows that it is possible to produce an accurate model with reduced dimensionality if the *right* combination of features are used.</p>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-md-1">
@@ -314,11 +316,19 @@
 
         <!-- Body Section -->
         <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <!-- Intentionally Blank -->
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    <p class="h4 text-center">Evaluate Model with PCA</p>
+                    <p class="h6 text-center">While the demographics data did not produce an RFC model that could make prediction better than chance, it is still possible to create an accurate model with less than the full set of data. PCA is used to project samples onto a subspace of the feature space that preserves the most variation to noise in the output. The PCA RFC model is trained with data that is dimensionally reduced using PCA and tested with data that uses the same PCA transformation. The testing accuracy score is 89% - similar to logistic regression and knn models. This model shows that it is possible to produce an accurate model with reduced dimensionality if the *right* combination of features are used.</p>
+                </div>
+            </div>
+
+            <div class="col-md-5">
                 <div class="border rounded bg-light m-2 p-2">
                     <div class="tab">
                         <!-- Random Forest ROC with PCA -->
@@ -356,7 +366,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <!-- Intentionally Blank -->
             </div>
         </div>
