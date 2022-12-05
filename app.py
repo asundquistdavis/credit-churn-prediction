@@ -99,6 +99,10 @@ def neural_network():
 def random_forest_classifier():
     return render_template('model/random_forest.html')
 
+@app.route('/comparison')
+def comparison():
+    return render_template('comparison.html')
+
 @app.route('/predict2', methods=['GET', 'POST'])
 def this_is_just_a_test():
     if request.method == 'POST':
