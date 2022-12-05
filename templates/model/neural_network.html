@@ -31,7 +31,8 @@
         <div class="row g-0">
             <div class="col-md-12">
                 <div class="border rounded bg-light m-2 p-2">
-                    <h3 class="display-4 text-center">Neural Network</h3>    
+                    <h3 class="display-4 text-center">Neural Network</h3>
+                    <!-- <p class="text-center">Use the interactive map below to explore your options!</p> -->
                 </div>
             </div>
         </div>
@@ -39,7 +40,7 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url_for('about') }}">About</a>
-            <img src="../static/assets/churn.png" width="15" class="center" alt="Credit Card Churn Project Logo">
+            <img src="../../Resources/churn.png" width="15" class="center" alt="Credit Card Churn Project Logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -77,8 +78,20 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center"><underline>Purpose</underline>: blah blah blah</p>
-                    <p class="h4 text-center"><underline>How</underline>: blah blah blah</p>
+                    <p class="h4 text-center"><underline>Purpose</underline> </p>
+                    <p class="text-center">                        Business growth is deterministic on many factors - all of which revolve around the lifeblood that governs a businesses success. 
+                        The customer. Without the customer a business is without purpose. 
+                        So of course the main focus of a business must be to capture and retain their customers. 
+                        While capture is undeniably important, it is also within the companies best interest to retain those captures. 
+                        That best interest is what the focus of this website is on - the measurement of customer loss: Churn.<br> 
+                        <br>
+                        Specifically, we wanted to build predictive models off credit card churn - the model demonstrated on this page is a neural network model. <br> 
+                        <br>
+                        Demonstrated here is an artificial neural network (ANN) that attempts to learn from a dataset composed of credit card user characteristics 
+                        and predict the retention of a card user from what was learned. <br> </p>
+
+                    </p>
+                    <!-- <p class="h4 text-center"><underline>How</underline>: blah blah blah</p> -->
                 </div>
             </div>
 
@@ -96,11 +109,13 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    
+                    <p class="h4 text-center"><underline>Model Archticecture</underline></p>
                     <!-- Tableau Neural Network Embed -->
-                    <img src="Replace with tableau embed" width="600" class="center" alt="Tableau test">
+                    <!-- <img src="Replace with tableau embed" width="600" class="center" alt="Tableau test"> -->
                     <!-- Local Matplotlib Embed -->
-                    <img src="../static/assets/nn_ROC" width="400" class="center" alt="Neural network ROC curve image">
+                    <img src="../../static/assets/neuralnet_arch.png" width="35%" class="center" alt="Neural network ROC curve image"></br>
+                    <p class="h6 text"><b>Figure 1:</b> 
+                        <span style="font-size: 14px "> Network Model Architecture, provided by TensorFlow Keras Utilities. Visually adjusted for presentation </span></p>
                 </div>
             </div>
 
@@ -118,8 +133,17 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center"><underline>Reasoning</underline>: blah blah</p>
-                    <p class="h4 text-center"><underline>Modeling steps taken</underline>: blah blah</p>
+                    <p class="h4 text-center"><underline>Model Setup</underline></p>
+                    <p>Figure 1 should give you an idea of the layout of the model. This model uses 37 features provided by the dataset
+                        and therefore the input layer contains 37 nodes. Next is the hidden layer which utilizes 25 nodes, which is rounded up from 2/3rds of the
+                        features/inputs (24.66666). The next layer is a dropout layer, which was utilized in response to overfitting observed in the initial model shown below
+                        as Figure 2.
+                        Finally, the last layer is the output layer consisting of 1 node. </br>
+                        </br>
+                        Shown in red in Figure 1 are the activation functions used. ReLu for the hidden layer and Sigmoid for the output layer.
+                        </br> 
+                    </p>
+
                 </div>
             </div>
 
@@ -130,51 +154,74 @@
         
         
     <!-- Three Plots Row (initial, l2, dropout) -->
+
+        <!-- L2 model Row -->
         <div class="row g-0">
             <div class="col-md-2">
                 <!-- Intentionally Blank -->
             </div>
-            
-            <div class="col-md-3">
+        
+            <div class="col-md-4">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <!-- image -->
-                    <img src="../static/assets/initial_model.png" width="275" class="center" alt="Churn Neural Netowrk - Initial Model">
-                    <!-- image
-                    <img src="../../Outputs/neural_network/L2_model.png" width="250" class="center" alt="Churn Neural Network - L2 Model">
-                    image
-                    <img src="../../Outputs/neural_network/dropout_model.png" width="250" class="center" alt="Churn Neural Network - Dropout Model"> -->
+                    <p class="h3 text-center">Initial Model: Accuracy & Loss: Training vs Validated</p>
+                    <!-- Local Matplotlib Embed -->
+                    <img src="../../static/assets/initial_model.png" width="100%" class="center" alt="Churn Neural Network L2 Dropout Model">
+                    <p class="h6 text"><b>Figure 2:</b> 
+                        <span style="font-size: 14px "> The initial model tested with no optimization. Visualization output from Matplotlib. </span></p>
                 </div>
             </div>
 
-            <!-- <div class="col-md-1">
-                Intentionally Blank
-            </div> -->
-
-            <div class="col-md-3">
-                <!-- Row element -->
+            <div class="col-md-4">
                 <div class="border rounded bg-light m-2 p-2">
-                    <!-- image -->
-                    <img src="../static/assets/L2_model.png" width="275" class="center" alt="Churn Neural Network - L2 Model">
-                </div>
-            </div>
+                    <p class="text"><b>Figure 2</b> shows the initial training accuracy and loss plotted alongisde the validated accuracy and loss. The models parameters are as follows:</br>
+                        <table class="table">
+                            <thread>
+                                <tr>
+                                    <th scope="col"><b>Parameter</b></th>
+                                    <th scope="col"><b>Value</b></th>
+                                    <th scop="col"><b>Rationale</b></th>
+                                </tr>
+                            </thread>
+                            <!-- Spacing -->
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Inputs</th>
+                                    <td>37</td>
+                                    <td>Total amount of features used from dataset</td>
+                                </tr>
+                                <!--- Spacing --->
+                                <tr>
+                                    <th scope="row">Hidden Nodes</th>
+                                    <td>25</td>
+                                    <td>2/3 of Inputs/Features</td>
+                                </tr>
+                                <!--- Spacing --->
+                                <tr>
+                                    <th scope="row">Outputs</th>
+                                    <td>1</td>
+                                    <td>Sigmoid function in output layer allows for single output binary classifcation</td>
+                                </tr>                                                                   
+                                <!-- Spacing -->
+                                <tr>
+                                    <th scope="row">Epochs</th>
+                                    <td>100</td>
+                                    <td>Arbitrary. Dataset is small so therefore the amount of  iterations required for convergence is likely low.</td>
+                                </tr>
 
-            <!-- <div class="col-md-1">
-                Intentionally Blank
-            </div> -->
-
-            <div class="col-md-3">
-                <!-- Row element -->
-                <div class="border rounded bg-light m-2 p-2">
-                    <!-- image -->
-                    <img src="../static/assets/dropout_model.png" width="275" class="center" alt="Churn Neural Network - Dropout Model">
-                </div>
+                            </tbody>
+                            <!-- Spacing -->
+                            
+                        </table>
+                        From these parameters we are able to generate our model. The results of the model are interpreted in figure 2.
+                        Using the validated results, we are able to observe that the training results are not true predictions, and instead the model 
+                        found a pattern from its training data that allowed it to score well against that training data. The validation results show that the model
+                        is unable to perform on unexpected new data. </br>
+                        </br>
+                        These results point to model overfitting. Fortunately, there are ways to optimize the model to adjust for overfitting.
+                    </p>
             </div>
-
-            <div class="col-md-1.5">
-                <!-- Intenetionally Blank -->
-            </div>
-        </div>   
+        </div>  
 
     <!-- Text Row -->
         <div class="row g-0">
@@ -184,9 +231,7 @@
             
             <div class="col-md-8">
                 <!-- Row element -->
-                <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center"><underline>Description of figure</underline>: blah blaah Blah!</p>
-                    <p class="h4 text-center"><underline>Optimization steps taken</underline>: blah blah blah</p>
+
                 </div>
             </div>
 
@@ -202,16 +247,36 @@
                 <!-- Intentionally Blank -->
             </div>
         
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
                     <!-- Local Matplotlib Embed -->
-                    <img src="../static/assets/dropout_L2_model.png" width="400" class="center" alt="Churn Neural Network L2 Dropout Model">
+                    <p class="h4 text-center">Optimized Model: Accuracy & Loss: Training vs Validated</p>
+                    <img src="../../static/assets/dropout_L2_model.png" width="100%" class="center" alt="Churn Neural Network L2 Dropout Model">
+                    <p class="h6 text"></pclass> <b>Figure 3:</b>
+                        <span style="font-size: 14px "> Model using L2 Regularization and Dropout. </span>
+                    </p>
+
                 </div>
             </div>
 
-            <div class="col-md-2">
-                <!-- Intentionally Blank -->
+            <div class="col-md-4">
+                <div class="border rounded bg-light m-2 p-2 ">
+                    <p>Figure 3 shows showcases how using two optimization techniques that ajdust the way the model interacts with the data provided, we are able to achieve training and validation
+                        results that align with one another. The optimizations we used are: </br>
+                        </br>
+                        <b>L2 Regularization:</b> Adjusts the weights of the models layers to be smaller in order to adjust for overfitting. Briefly, this adjusts the 
+                        overall influence of features and improves the way the model 'thinks' about those features as predictors. As a human, L2 Regularization could be
+                        thought of as allowing yourself to view situations from a new point of view, instead of judging situations based on constrained, comfortable experiences. 
+                        As you add perspective to your life (L2 Regularization) your judgement (outcome) is made more robust and generalised due to your own experiences(weights) not holding as much
+                        influence(smaller weights provided by L2 regularization) over new and unusual situations(new/unseen data).</br>
+                        </br> 
+                        <b>Dropout:</b> Dropout does as its name implies - it drops out input and hidden layer nodes during model training. This adjusts for overfitting by not allowing 
+                        the model to rely on certain nodes and create patterns from these nodes - thus allowing for the independence of each node. The independence of the node is important in 
+                        this scenario of overfitting as it disallows a nodes tendency to fix the mistakes of other nodes. Briefly,
+                        with dropout, each node is made more sufficient at responding to new/unseen data. In a humans perspective, dropout is like not forming bad habits based on
+                        the people around you by not interacting with them (or in this case, removing their existence from your life).
+                </div>
             </div>
         </div>  
             
@@ -225,8 +290,18 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center"><underline>Description of figure</underline>: blah blah</p>
-                    <p class="h4 text-center"> ( nada )</p>
+                    <p class="h4 text-center">Analysis</p>
+                    <p> With the optimized model(Figure 3) no longer suffering from overfitting, we proceeded with analytics of the prediction results.</br>
+                        </br> 
+                        <b>Figure 4</b>: Shows the ROC((receiver operating characteristic) Curve, a type of graph that is meant to showcase the ability of a binary classification model - essentially it rates if the True(1)
+                        and False(0) outcome predictions from the model are True Positives or False Positives by plotting the TPR(True Positive Rate) and the FPR(False Positive Rate). In order to 
+                        properly sort these results a measure called the AUC(Area Under the ROC curve) is used. The area the AUC measures the probability of each potential output from the model, classified as 
+                        True Positive, False Positive, True Negative, and False Negative. Essentially, this plot tells us, within probability, how true are the predictions the model provides. For this plot, 
+                        a probability >.5 was used.</br>
+                        </br>
+                        <b>Figure 5</b>: Shows a binary confusion matrix, a visualization of the TPR and FPR measured in Figure 4. The confusion matrix simply lists the amount of each
+                        outcome of the True/False Positives and True/False Negatives. 
+                    </p>
                 </div>
             </div>
 
@@ -246,37 +321,19 @@
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
                     <!-- Local Matplotlib Embed -->
-                    <img src="../static/assets/nn_ROC.png" width="400" class="center" alt="Churn Neural Network ROC Curve">
+                    <p class="h4 text-center">AUC-ROC Curve</p>
+                    <img src="../../static/assets//nn_ROC.png" width="100%" class="center" alt="Churn Neural Network ROC Curve">
+                    <p class="h6 text"></pclass> <b>Figure 4:</b>
+                        <span style="font-size: 14px "> AUC-ROC curve modeled using Matplotlib. </span>
+                    </p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <!-- Row element -->
-                <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center">Confusion Matrix</p>
-                    <hr><br>
-                    <!-- test table -->
-                    <table class="table table-border">
-                        <tr>
-                          <td> </td>
-                          <td class="bg-primary">( PP )</td>
-                          <td class="bg-secondary">( PF )</td>
-                        </tr>
-                        <tr>
-                          <td class="bg-warning">Positive</td>
-                          <td class="bg-success">(TP) Ohh? Yes?</td>
-                          <td class="bg-danger">(FN) No...</td>
-                        </tr>
-                        <tr>
-                          <td class="bg-secondary">Negative</td>
-                          <td class="bg-danger">(FP) Newp</td>
-                          <td class="bg-success">(TN) totally not</td>
-                        </tr>
-                    </table>
-                    
-                
-                
-                </div>
+                <img src="../../static/assets//nn_matrix.png" width="70%" class="center" alt="Con Matrix">
+                <p class="h6 text"></pclass> <b>Figure 5:</b>
+                    <span style="font-size: 14px "> Confusion Matrix using Tableau. </span>
             </div>
 
             <div class="col-md-2">
@@ -294,8 +351,18 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    
-                    <p class="h4 text-center"><underline>Final Thoughts</underline>: blah bliggity blizzah!</p>
+                    <p class="h4 text-center"><underline>Conclusion</underline>
+                    <p>
+                        The neural network performs well when viewed on its own. Simply by introducing optimizations to the models layers/nodes the model was able to 
+                        achieve a good fit against new/unseen data, acheiving an accuracy of 93.8% and reducing loss from .2008 to .1718, trending higher for accuracy and climbing lower for
+                        loss whose ideal value is 0. Ultimately, the model trends towards being useful and with further optimizations looking into the dataset and adjusting the features used,
+                        the model may achieve higher accuracy and a loss closer to 0. </br>
+                        </br>
+                        Looking at the model when compared to the other Machine Learning models showcased on this website using the same features, the Neural Network performs 2nd best, falling short of the 
+                        Random Forest Classifer, which achieved an accuracy of 97%. Overall, the Random Forest Classifier is likely most preferable for a machine learning model for 
+                        credit card user churn predictive modeling performance. While a neural network has potential to reach the same percentage, it would be with adjustment and optimization,
+                        adjustment and optimization that the Random Forest model does not need. 
+                    </p>
                 </div>
             </div>
 
