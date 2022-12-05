@@ -3,24 +3,6 @@ html *
     font-family: "Garamond", serif;
 }
 
-/* .table
-{
-    width: 500;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    padding-left: 10%;
-    padding-top: 25%;
-}
-  
-.table th, .table td
-{
-    width: 166;
-    max-width: 33%;
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #1C1D21;
-} */
-
 .select
 {
     display: inline-block;
