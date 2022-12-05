@@ -2,6 +2,7 @@
 from flask import Flask, request, render_template
 import numpy as np
 from pickle import load
+from random import choice
 
 # load model and scaler
 ss = load(open('Scalers/d-rfc.pkl', 'rb'))
@@ -20,7 +21,7 @@ def is_valid(entry):
         entry['numdep'] = int(entry['numdep'])
         return True, ''
 
-# this converts entries <dict> into features <list/1d array>
+# this converts the users `entries` <dict> into `features` <list/1d array> which can be pased into 
 def features_from(entry):
     features = []
     features.append(entry['age'])
@@ -38,6 +39,8 @@ def features_from(entry):
 #  --- these are some static variables for the prediction route --- 
 # this sets the threshold for the rfc model (i.e. positive prediction probabilities greater than `MODEL_THRESHOLD` will be considered positve cases) 
 MODEL_TRHESHOLD = .91
+
+EMOJIS = (('&#x1f613;', '&#x1f627;', '&#x1f635;', '&#x1f626;'), ('&#x1f600;', '&#x1f601;', '&#x1f607;', '&#x1f64f;'))
 
 DEMOGRAOHICS = ['Age', 'Gender', 'Dependents', 'Education Level', 'Marital Status', 'Annual Income']
 
@@ -70,10 +73,13 @@ def predict():
         print(rfc.predict(features_scaled)[0])
 
         # use the model to make a prediction based on the users entry/features
-        outcomes = ['high risk attrition customer', 'low risk attrition customer']
-        prediction = outcomes[(0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)]
 
-        prediction_text = f'{prediction.capitalize()}.'
+        prediction = (0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)
+        
+        outcomes = ['high risk attrition customer', 'low risk attrition customer']
+
+        prediction_text = f'{outcomes[prediction].capitalize()} {choice(EMOJIS[prediction])}'
+
         return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text=prediction_text, entry=entry)
     else: 
         return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text='Make a prediction!')
@@ -98,38 +104,12 @@ def neural_network():
 @app.route('/model/random-forest-classifier')
 def random_forest_classifier():
     return render_template('model/random_forest.html')
+# ---
 
+# compare models route
 @app.route('/comparison')
 def comparison():
     return render_template('comparison.html')
-
-@app.route('/predict2', methods=['GET', 'POST'])
-def this_is_just_a_test():
-    if request.method == 'POST':
-
-        # get user entry from form 
-        entry = {k:v for k,v in request.form.items()}
-
-        # check if age and number of deps. are numeric
-        if not is_valid(entry)[0]:
-            return render_template('Prediction-tester.html', demographics=DEMOGRAOHICS, prediction_text=is_valid(entry)[1], entry=entry)
-        
-        # build feature array from entry
-        features = features_from(entry)
-
-        # scale features using the model's scaler
-        features_scaled = ss.transform(features)
-
-        print(rfc.predict(features_scaled)[0])
-
-        # use the model to make a prediction based on the users entry/features
-        outcomes = ['high risk attrition customer', 'low risk attrition customer']
-        prediction = outcomes[(0 if rfc.predict_proba(features_scaled)[0,1] < MODEL_TRHESHOLD else 1)]
-
-        prediction_text = f'{prediction.capitalize()}.'
-        return render_template('Prediction-tester.html', demographics=DEMOGRAOHICS, prediction_text=prediction_text, entry=entry)
-    else: 
-        return render_template('Prediction-tester.html', demographics=DEMOGRAOHICS, prediction_text='Make a prediction!')
 
 if __name__ == '__main__':
     app.run(debug=True)
