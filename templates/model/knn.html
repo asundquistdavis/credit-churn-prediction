@@ -77,10 +77,10 @@
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
                     <p class="h3 text-center">Overview</p>
-                    <p class="h5 text-center"><span class="italic">k</span>-Nearest Neighbors (<span class="italic">k</span>NN) is one the simplest and popular machine learning models, which tells an algorithm to find the closest neighbors to the known data points and assign them accordingly. One way to do this is to loop through the data and calculate a score in comparison of the training dataset and the test dataset. The point where these two sets of data start to stabilize is what is used to determine the <span class="italic">k</span>. This also allows a user to see how accurate that model is by the corresponding accuracy score.</p>
+                    <p class="h5 text-center"><span class="italic">k</span>-Nearest Neighbors (<span class="italic">k</span>-NN) is one the simplest and popular machine learning models, which tells an algorithm to find the closest neighbors to the known data points and assign them accordingly. One way to do this is to loop through the data and calculate a score in comparison of the training dataset and the test dataset. The point where these two sets of data start to stabilize is what is used to determine <span class="italic">k</span>. This also allows a user to see how accurate that model is by the corresponding accuracy score.</p>
                     <hr>
                     <p class="h3 text-center"><span class="italic">k</span>-Nearest Neighbors Analysis</p>
-                    <p class="h5 text-center">In this example, we can see the datasets begin to stabilize where <span class="italic">k</span>=5 with an accuracy of 89%. This is a relatively good score but could produce some inaccurate results, where other models may yield better results.</p>
+                    <p class="h5 text-center">In this example, we can see the datasets begin to stabilize where <span class="italic">k</span> = 5, with an accuracy of 89%. This is a relatively good score but could produce some inaccurate results, where other models may yield better results.</p>
                 </div>
             </div>
         
@@ -185,7 +185,7 @@
                     <p class="h3 text-center">[  262 false positive,  143 true negative]]</p>
                     <hr>
                     <p class="h3 text-center">ROC analysis</p>
-                    <p class="h5 text-center">This ROC curve is used to check the fit of the model and examine the false positive rate in comparison to the true positive rate. A curve that produces a sharp right angle is ideal with an AUC close to 1. In this example, the data is showing an ROC curve that produces the desired result we would expect but with an AUC of 85%, this also tells us that this model may not produce the best results.</p>
+                    <p class="h5 text-center">The ROC curve is used to check the fit of the model and examine the false positive rate in comparison to the true positive rate. A curve that produces a sharp right angle is ideal with an AUC close to 1. In this example, the data is showing an ROC curve that produces the desired result we would expect but with an AUC of 85%, this also tells us that this model may not be as easy to tune depending on the used case.</p>
                     <p class="h3 text-center">Summary</p>
                     <p class="h5 text-center">The <span class="italic">k</span>-Nearest Neighbors model is an easy to use model that does a decent job in analyzing the data in relation to the training data, but falls a little short of the accuracy that some of the machine learning models were able to produce.</p>
                 </div>
