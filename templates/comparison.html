@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- set the character set -->
+    <meta charset="utf-8">
+
+    <!-- set the title -->
+    <title>Compare Models</title>
+    <link rel="icon" type="image/x-icon" href="static/assets/churn.ico">
+
+
+    <!-- reset the style -->
+    <link rel="stylesheet" href="static/css/reset.css">
+
+    <!-- set metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- link to bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    
+    <!-- now link to custom style.css -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- header section -->
+        <div class="row g-0">
+            <div class="col-md-12">
+                <div class="border rounded bg-light m-2 p-2">
+                    <h3 class="display-4 text-center">Model Comparisons</h3>
+                    <!-- <p class="text-center">Use the interactive map below to explore your options!</p> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url_for('about') }}">About</a>
+            <img src="static/assets/churn.png" width="15" class="center" alt="Credit Card Churn Project Logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Machine Learning Models
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ url_for('knn') }}"><span class="italic">k-</span>Nearest Neighbors</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('logistic_regression') }}">Logistic Regression</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('neural_network') }}">Neural Network</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('random_forest_classifier') }}">Random Forest</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Compare Models<span class="italic" class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('predict') }}">Make Prediction</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <!-- Body Section -->
+
+        <!-- row 1 -->
+        <div class="row g-0">
+            
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-4">
+
+                    <p class="h3 text-center" style="font-weight: bold">Logistic Regression</p> 
+                    <p class="h3 text-center">Accuracy: 89.69%</p>
+                    <p class="h3 text-center">AUC-ROC: 73.11%</p>
+
+                    <div class='tableauPlaceholder' id='viz1670187623674' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Log Reg ROC ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='OutputVisualizationsLOGREGROC&#47;LogRegROC' />
+                            <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsLOGREGROC&#47;LogRegROC&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1670187623674');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script> 
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+
+                    <p class="h3 text-center" style="font-weight: bold">KNN</p> 
+                    <p class="h3 text-center">Accuracy: 89.00%</p>
+                    <p class="h3 text-center">AUC-ROC: 84.65%</p>
+
+                    <div class='tableauPlaceholder' id='viz1669773274084' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='KNN ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsKNNROC&#47;KNNROC&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='OutputVisualizationsKNNROC&#47;KNNROC' />
+                            <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsKNNROC&#47;KNNROC&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1669773274084');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+
+                    <p class="h3 text-center" style="font-weight: bold">Neural Network</p> 
+                    <p class="h3 text-center">Accuracy: %</p>
+                    <p class="h3 text-center">AUC-ROC: %</p>
+
+                    <img src="static/assets/nn_ROC.png" width="100%"/>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- row 2 -->
+        <div class="row g-0">
+        
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+
+                    <p class="h3 text-center" style="font-weight: bold">RFC Base</p> 
+                    <p class="h3 text-center">Accuracy: 95.18%</p>
+                    <p class="h3 text-center">AUC-ROC: 98.67%</p>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ab alias explicabo odit beatae hic exercitationem autem eius praesentium amet, modi unde ullam doloremque fugiat error aperiam dolorum odio cupiditate. Error, similique vero commodi sapiente nulla dolore repellendus ducimus a enim ullam facilis minus ipsum quo corrupti voluptas! Itaque, ut?</p>
+
+                    <div class='tableauPlaceholder' id='viz1669769025555' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Random Forest Classifier ROC  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='OutputVisualizations&#47;RFCROC' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizations&#47;RFCROC&#47;1.png' /> <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1669769025555');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';
+                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+
+                    <p class="h3 text-center" style="font-weight: bold">RFC with Demographics</p> 
+                    <p class="h3 text-center">Accuracy: 77.84%</p>
+                    <p class="h3 text-center">AUC-ROC: 49.94%</p>
+
+                    <div class='tableauPlaceholder' id='viz1670195352544' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='ROC for Random Forest Classifier Trained on Demographic Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCROCTrainedx-d&#47;RFCROCx-d&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='OutputVisualizationsRFCROCTrainedx-d&#47;RFCROCx-d' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCROCTrainedx-d&#47;RFCROCx-d&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>                
+                    <script type='text/javascript'>                    
+                        var divElement = document.getElementById('viz1670195352544');                    
+                        var vizElement = divElement.getElementsByTagName('object')[0];                    
+                        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+                        var scriptElement = document.createElement('script');                    
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    </script>  
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Row element -->
+                <div class="border rounded bg-light m-2 p-2">
+                    
+                    <p class="h3 text-center" style="font-weight: bold">RFC with PCA</p> 
+                    <p class="h3 text-center">Accuracy: 88.39%</p>
+                    <p class="h3 text-center">AUC-ROC: 85.48%</p>
+
+                    <div class='tableauPlaceholder' id='viz1670195969513' style='position: relative'>
+                        <noscript>
+                            <a href='#'><img alt='ROC for Random Forest Classifier with PCA ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCX-PCA&#47;RFCX-PCA&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='OutputVisualizationsRFCX-PCA&#47;RFCX-PCA' />
+                            <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ou&#47;OutputVisualizationsRFCX-PCA&#47;RFCX-PCA&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>                
+                    <script type='text/javascript'>                    
+                        var divElement = document.getElementById('viz1670195969513');                    
+                        var vizElement = divElement.getElementsByTagName('object')[0];                    
+                        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+                        var scriptElement = document.createElement('script');                    
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    </script>
+
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+
+    <!-- bootstrap js scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
