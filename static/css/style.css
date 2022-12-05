@@ -3,7 +3,7 @@ html *
     font-family: "Garamond", serif;
 }
 
-.table
+/* .table
 {
     width: 500;
     max-width: 100%;
@@ -19,7 +19,7 @@ html *
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #1C1D21;
-}
+} */
 
 .select
 {
