@@ -56,3 +56,8 @@ underline
     display: block;
     width: 100%;
 }
+
+figure.model_arch {
+    float: left;
+    text-align: center;
+}
