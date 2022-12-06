@@ -75,7 +75,7 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h5 text-center">This is a machine for predicting risk of customer attrition based upon profile demography inputs. It is intended to inform marketing decisions.</p>
+                    <p class="h5 text-center">This page is used to make attrition predictions based on demographics alone. It serves as an example of a tool that could inform marketing decisions. It uses a random forest model trained on demographic data. visit the <a href="{{ url_for('random_forest_classifier') }}">random forest model</a> page for more info.</p>
                 </div>
             </div>
 
@@ -209,8 +209,8 @@
             <div class="col-md-10">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h5 text-center">With this tool we can look at which clients are most likely retained, as well as which clients are at high risk of attrition. Machine learning uses a random forest classifier.</p>
-                    <p class="h5 text-center">For more information about why this method is being used, please note the ROC curve visualizations below comparing the accuracy of some of the methods we used. You can also navigate to see a deeper analysis of each from the ‘<span class="italic">Machine Learning Models</span>’ button from the navigation bar.</p>
+                    <p class="h5 text-center">With this tool we can look at which clients are most likely retained, as well as which clients are at high risk of attrition based on their demographics alone. However, the model used scores low compared to the models made with all of the data present.</p>
+                    <p class="h5 text-center"> To see why, take a look at the visualizations below which show how frequent the model predicts an existing customer across different demographics.</p>
                 </div>
             </div>    
             <div class="col-md-1">

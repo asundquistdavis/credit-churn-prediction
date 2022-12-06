@@ -1,25 +1,25 @@
 # Credit Card Churn
 
-### Analyzing and Predicting Credit Card Churn
-
 ##### Authors:
 * Bryan Groves (GrovesB) - KNN analysis and lead Tableau design
 * Nathan Johnson (ntjohn3551) - Logistic Regression analysis
 * Jacob McManaman (Jacob-McM) - Neural Network analysis
 * Andrew Sundquist (asundquistdavis) - Lead Web Hosting and Random Forest Classifier analysis
 * John Torgerson (JohnTorgerson) - Lead Web design
+
+---
+### Overview:
+This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. While the data set in this project is used to predict churn this same type of analysis can be used to predict churn on other datasets.
+
 ---
 ### Instructions
-
-
-### Overview:
-This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. The original data indicates existing and non-existing users however, the models created are used as a way to predict which types of users are more likeing to close their accounts in the future.
-
-While the data set in this project is used to predict churn this same type of analysis can be used to predict churn patterns on other data sets.
+- The following files are used soley for hosting the website: `runtime.txt`, `requirements.txt`, `Procfile`, `app.py` and all files in the `templates` and `static` folders.
+- All files in the Analysis folder, *except* `model.py`, contain code to create the models used in this project and run on the PythonData38 enviroment (described below).
+- `app.py` and `model.py` run on the CCPredict envireoment (also described below). 
+- PythonData38: python 3.8 and must have pandas, matplotlib, scikit-leran, tensor-flow, splinter
+- CCPredict: python 3.9 and must have flask, gunicorn, scikit-learn (see requirements.txt for exact build requirements)
 
 ---
-
-
 ### Guide to Repo Contents:
 * In Folder `Analysis`: this folder contains python files and notebooks performing the analysis for the project
     1. `etl_workflow.ipynb` is a notebook that cleans the data, explores its basic features and prepares it for further analysis
@@ -63,16 +63,7 @@ While the data set in this project is used to predict churn this same type of an
 * `runtime.txt` is a text file that indicates runtime variables to Heroku
 ---
 
-### Observations:
-* 
----
-
-### Conclusions:
-* 
----
-
 ### Credits and Special Thanks
-* whoever
 * University of Minnesota in partnership with 2U inc
 * Instructor Dominic LaBella
 * TA Colin
