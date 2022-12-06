@@ -98,7 +98,7 @@
             </div>
         </div>
         
-    <!-- Archticecture row -->
+    <!-- Architecture row -->
         <div class="row g-0">
             <div class="col-md-2">
                 <!-- Intentionally Blank -->
@@ -107,7 +107,7 @@
             <div class="col-md-8">
                 <!-- Row element -->
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="h4 text-center"><underline>Model Archticecture</underline></p>
+                    <p class="h4 text-center"><underline>Model Architecture</underline></p>
                     <!-- Tableau Neural Network Embed -->
                     <!-- <img src="Replace with tableau embed" width="600" class="center" alt="Tableau test"> -->
                     <!-- Local Matplotlib Embed -->
@@ -172,13 +172,13 @@
 
             <div class="col-md-4">
                 <div class="border rounded bg-light m-2 p-2">
-                    <p class="text"><b>Figure 2</b> shows the initial training accuracy and loss plotted alongisde the validated accuracy and loss. The models parameters are as follows:</br>
+                    <p class="text"><b>Figure 2</b> shows the initial training accuracy and loss plotted alongside the validated accuracy and loss. The models parameters are as follows:</br>
                         <table class="table">
                             <thread>
                                 <tr>
                                     <th scope="col"><b>Parameter</b></th>
                                     <th scope="col"><b>Value</b></th>
-                                    <th scop="col"><b>Rationale</b></th>
+                                    <th scope="col"><b>Rationale</b></th>
                                 </tr>
                             </thread>
                             <!-- Spacing -->
@@ -198,7 +198,7 @@
                                 <tr>
                                     <th scope="row">Outputs</th>
                                     <td>1</td>
-                                    <td>Sigmoid function in output layer allows for single output binary classifcation</td>
+                                    <td>Sigmoid function in output layer allows for single output binary classification</td>
                                 </tr>                                                                   
                                 <!-- Spacing -->
                                 <tr>
@@ -260,19 +260,19 @@
 
             <div class="col-md-4">
                 <div class="border rounded bg-light m-2 p-2 ">
-                    <p>Figure 3 shows showcases how using two optimization techniques that ajdust the way the model interacts with the data provided, we are able to achieve training and validation
+                    <p>Figure 3 shows showcases how using two optimization techniques that adjust the way the model interacts with the data provided, we are able to achieve training and validation
                         results that align with one another. The optimizations we used are: </br>
                         </br>
                         <b>L2 Regularization:</b> Adjusts the weights of the models layers to be smaller in order to adjust for overfitting. Briefly, this adjusts the 
                         overall influence of features and improves the way the model 'thinks' about those features as predictors. As a human, L2 Regularization could be
                         thought of as allowing yourself to view situations from a new point of view, instead of judging situations based on constrained, comfortable experiences. 
-                        As you add perspective to your life (L2 Regularization) your judgement (outcome) is made more robust and generalised due to your own experiences(weights) not holding as much
+                        As you add perspective to your life (L2 Regularization) your judgment (outcome) is made more robust and generalized due to your own experiences(weights) not holding as much
                         influence(smaller weights provided by L2 regularization) over new and unusual situations(new/unseen data).</br>
                         </br> 
                         <b>Dropout:</b> Dropout does as its name implies - it drops out input and hidden layer nodes during model training. This adjusts for overfitting by not allowing 
                         the model to rely on certain nodes and create patterns from these nodes - thus allowing for the independence of each node. The independence of the node is important in 
-                        this scenario of overfitting as it disallows a nodes tendency to fix the mistakes of other nodes. Briefly,
-                        with dropout, each node is made more sufficient at responding to new/unseen data. In a humans perspective, dropout is like not forming bad habits based on
+                        this scenario of overfitting as it disallows a node's tendency to fix the mistakes of other nodes. Briefly,
+                        with dropout, each node is made more sufficient at responding to new/unseen data. In a human's perspective, dropout is like not forming bad habits based on
                         the people around you by not interacting with them (or in this case, removing their existence from your life).
                 </div>
             </div>
@@ -327,11 +327,13 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 align-self-center">
                 <!-- Row element -->
-                <img src="../../static/assets//nn_matrix.png" width="70%" class="center" alt="Con Matrix">
+                
+                <img src="../../static/assets//nn_matrix.png" width="80%" class="center" alt="Con Matrix">
                 <p class="h6 text"></pclass> <b>Figure 5:</b>
-                    <span style="font-size: 14px "> Confusion Matrix using Tableau. </span>
+                    <span style="font-size: 14px "> Confusion Matrix. The forward / diagonal represents the incorrect predictions[70,83]. 
+                        The backward \ diagonal represents the correct predictions[2081,298]</span>
             </div>
 
             <div class="col-md-2">
@@ -352,12 +354,12 @@
                     <p class="h4 text-center"><underline>Conclusion</underline>
                     <p>
                         The neural network performs well when viewed on its own. Simply by introducing optimizations to the models layers/nodes the model was able to 
-                        achieve a good fit against new/unseen data, acheiving an accuracy of 93.8% and reducing loss from .2008 to .1718, trending higher for accuracy and climbing lower for
+                        achieve a good fit against new/unseen data, achieving an accuracy of 93.8% and reducing loss from .2008 to .1718, trending higher for accuracy and climbing lower for
                         loss whose ideal value is 0. Ultimately, the model trends towards being useful and with further optimizations looking into the dataset and adjusting the features used,
                         the model may achieve higher accuracy and a loss closer to 0. </br>
                         </br>
                         Looking at the model when compared to the other Machine Learning models showcased on this website using the same features, the Neural Network performs 2nd best, falling short of the 
-                        Random Forest Classifer, which achieved an accuracy of 97%. Overall, the Random Forest Classifier is likely most preferable for a machine learning model for 
+                        Random Forest Classifier, which achieved an accuracy of 97%. Overall, the Random Forest Classifier is likely most preferable for a machine learning model for 
                         credit card user churn predictive modeling performance. While a neural network has potential to reach the same percentage, it would be with adjustment and optimization,
                         adjustment and optimization that the Random Forest model does not need. 
                     </p>
