@@ -1,3 +1,4 @@
+# imports
 import csv
 from sklearn.metrics import confusion_matrix as cm
 from matplotlib import pyplot as plt
@@ -17,6 +18,7 @@ import numpy as np
 
 from sklearn.model_selection import RandomizedSearchCV as RSCV
 
+# combines train-test-split and standard scaler
 def split_and_scale(X, y):
     _X, X_, _y, y_ = tts(X, y)
     ss = SS()
@@ -73,6 +75,7 @@ def roc(X_, y_, model_inst, N, plot = False, area=False, save_path=None):
     else:
         return (F, T)
 
+# returns accuracy from a data set and type of model
 def acc_test(X, y, model='log', inst_num=None, **kwargs):
     y = y.to_numpy().ravel()
     _Xs, Xs_, _y, y_ = split_and_scale(X, y)
@@ -81,6 +84,7 @@ def acc_test(X, y, model='log', inst_num=None, **kwargs):
     m.fit(_Xs, _y)
     return m.score(Xs_, y_)
     
+# returns an AUC-ROC score from a data set and type of model
 def auc_test(X, y, data_set=False, model='log', inst_num=None, trials=False, **kwargs):
     y = y.to_numpy().ravel()
     _Xs, Xs_, _y, y_ = split_and_scale(X, y)
@@ -94,6 +98,7 @@ def auc_test(X, y, data_set=False, model='log', inst_num=None, trials=False, **k
         save_path += f'_{inst_num}'
     return roc(Xs_, y_, m, 100, save_path=save_path+'.csv', area=True)
 
+# returns feature importances of a data set trained on a type of model
 def feature_importances(X, y, model='log', **kwargs):
     y = y.to_numpy().ravel()
     _Xs, Xs_, _y, y_ = split_and_scale(X, y)
@@ -102,6 +107,7 @@ def feature_importances(X, y, model='log', **kwargs):
     m.fit(_Xs, _y)
     return m.feature_importances_
 
+# scrapes the kaggle page that host the data set for the data dictionary provided there
 def get_data_dict(save_path=None):
     import pandas as pd
     from splinter import Browser
@@ -115,6 +121,8 @@ def get_data_dict(save_path=None):
         data_dict.to_csv(save_path)
     return data_dict
 
+# does a cross validation search for 'best' hyper parameters
+# this function was not used in final version of the project but could be interesting part of further research
 def rfc_cv(_X, X_, _y, y_, data_set_name):
     n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
     max_features = ['auto', 'sqrt']

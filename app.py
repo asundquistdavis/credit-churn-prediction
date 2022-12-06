@@ -13,9 +13,9 @@ rfc = load(open('Models/d-rfc.pkl', 'rb'))
 # this casts text entires as ints
 def is_valid(entry):
     if not entry['age'].isnumeric():
-        return False, 'Please enter a number for age.'
+        return False, 'Please enter a whole number for age.'
     elif not entry['numdep'].isnumeric():
-        return False, 'Please enter a number for number of dependents.'
+        return False, 'Please enter a whole number for number of dependents.'
     else:
         entry['age'] = int(entry['age'])
         entry['numdep'] = int(entry['numdep'])
@@ -62,7 +62,7 @@ def predict():
 
         # check if age and number of deps. are numeric
         if not is_valid(entry)[0]:
-            return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text=is_valid(entry)[1], entry=entry)
+            return render_template('predict.html', prediction_text=is_valid(entry)[1], entry=entry)
         
         # build feature array from entry
         features = features_from(entry)
@@ -80,9 +80,9 @@ def predict():
 
         prediction_text = f'{outcomes[prediction].capitalize()} {choice(EMOJIS[prediction])}'
 
-        return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text=prediction_text, entry=entry)
+        return render_template('predict.html', prediction_text=prediction_text, entry=entry)
     else: 
-        return render_template('predict.html', demographics=DEMOGRAOHICS, prediction_text='Make a prediction!')
+        return render_template('predict.html', prediction_text='Make a prediction!')
 
 # --- following '/models/' routes and for each model - all static
 # knn
