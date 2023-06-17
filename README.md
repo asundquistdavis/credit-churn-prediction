@@ -9,7 +9,7 @@
 
 ---
 ### Overview:
-This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. While the data set in this project is used to predict churn this same type of analysis can be used to predict churn on other datasets.
+This project aims to predict credit card user churn by analysing a data set containing over 25,000 credit cards users. The data set contains both demographical and usage - months inactive, credit limit, number of transactions - features as well as their active status. While the data set in this project is used to predict churn this same type of analysis can be used to predict churn on other datasets. The analysis is done in jupyter notebooks/Python and an [interactive website](https://credit-churn-predict.herokuapp.com/) is hosted through Heroku.
 
 ---
 ### Instructions
